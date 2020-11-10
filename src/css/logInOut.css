@@ -1,0 +1,229 @@
+.modalLogin{
+    width: 50%;
+    height: auto;
+    background-color: white;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 12px;
+}
+
+.modalLogin h1{
+    font-family: Squada One;
+    padding-top: 5%;
+    text-align: center;
+    color: rgb(36, 34, 34);
+}
+
+.modalLogin hr{
+    border: 3px solid rgb(36, 34, 34);
+    width: 30%;
+}
+body{
+    background-color: #001F3F;
+}
+.modalLogin .camp{
+    width: 60%;
+    height: 50px;
+    background-color: #E6DEDE;
+    border: 1px solid #ABA3A3;
+    border-radius: 7px;
+    font-family: Squada One;
+    padding-left: 2%;
+    margin-top: 4%;
+    margin-left: 20%;
+    font-size: 22px;
+
+}
+
+.modalLogin .btn-enviar{
+    width: 60%;
+    height: 50px;
+    background-color: #F44747;
+    border: 1px solid #FF0000;
+    border-radius: 7px;
+    font-family: Squada One;
+    padding-left: 2%;
+    margin-top: 4%;
+    margin-left: 20%;
+    color: white;
+    font-size: 30px;
+    padding-top: 0.3%;
+}
+
+.modalLogin .ckbox{
+    margin-top: 3%;
+    margin-left: 16.8%;
+}
+.modalLogin .ckbox .box{
+    width: 20px;
+    height: 20px;
+    padding-right: 5%;
+    margin-top: 1%;
+    float: left;
+    border: 1px solid #c50c0c;
+}
+
+.modalLogin .ckbox .boxtxt{
+    float: left;
+    padding-top: .7%;
+    padding-left: 2.1%;
+    font-family: Squada One;
+    color: #797474;
+}
+.modalLogin .footer-modal{
+    width: 100%;
+    height: 65px;
+    background-color: rgb(40, 48, 49);
+    margin-top: 8.2%;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.modalLogin .footer-modal .semconta{
+    font-family: Squada One;
+    font-size: 18px;
+    color: white;
+    float: left;
+    padding-left: 37%;
+    padding-top: 4%;
+}
+.modalLogin .footer-modal .btn-cad{
+    width: 110px;
+    height: 28px;
+    background-color: #13ffff;
+    border: 1px solid #0d9db6;
+    border-radius: 7px;
+    font-family: Squada One;
+    font-size: 18px;
+    padding-left: 2%;
+    margin-top: 3.5%;
+    margin-left: 5%;
+    color: rgb(37, 34, 34);
+    padding-top: 0%;
+    float: left;
+}
+/*---------------------------------------------------------------
+                        Modal de Cadastrar
+
+*/
+.modalCadastrar{
+    width: 100%;
+    height: auto;
+    background-color: white;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 12px;
+    margin-bottom: 10%;
+    
+}
+.row{
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.modalCadastrar .banner{
+    background-color:rgb(86, 189, 248);
+    height: 100%;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.modalCadastrar .account{
+    background-color: rgb(255, 255, 255);
+    height: 100%;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding-left: 0%;
+    padding-right: 0%;
+
+}
+.modalCadastrar h1{
+    word-wrap: break-word;
+    font-family: Squada one;
+    color: white;
+    text-align: center;
+    width: 50%;
+    font-size: 50px;
+    /* background-color: #FF0000; */
+    margin: auto;
+    margin-top: 15%;
+}
+.modalCadastrar .logo{
+    width: 280px;
+    height: 280px;
+    background-color: #ffffff;
+    margin: auto;
+    margin-top: 15%;
+    border-radius: 250px;
+    margin-bottom: 16.2%;
+}
+.modalCadastrar .row .account h1{
+    font-family: Squada One;
+    text-align: center;
+    color: rgb(36, 34, 34);
+    margin-top: 8%;
+}
+.modalCadastrar .row .account hr{
+    border: 3px solid rgb(36, 34, 34);
+    width: 50%;
+}
+
+.modalCadastrar .row .account .camp{
+    width: 60%;
+    height: 50px;
+    background-color: #E6DEDE;
+    border: 1px solid #ABA3A3;
+    border-radius: 7px;
+    font-family: Squada One;
+    padding-left: 2%;
+    margin-top: 4%;
+    margin-left: 20%;
+    font-size: 22px;
+}
+.modalCadastrar .row .account .btn-enviar{
+    width: 60%;
+    height: 50px;
+    background-color: #F44747;
+    border: 1px solid #FF0000;
+    border-radius: 7px;
+    font-family: Squada One;
+    padding-left: 2%;
+    margin-top: 7%;
+    margin-left: 20%;
+    color: white;
+    font-size: 30px;
+    padding-top: 0.3%;
+}
+
+.modalCadastrar .row .account .footer-modal{
+    width: 100%;
+    height: 65px;
+    background-color: rgb(40, 48, 49);
+    margin-top: 9.6%;
+    border-bottom-right-radius: 12px;
+}
+
+.modalCadastrar .row .account .semconta{
+    font-family: Squada One;
+    font-size: 18px;
+    color: white;
+    float: left;
+    padding-left: 37%;
+    padding-top: 4%;
+}
+.modalCadastrar .row .account .btn-cad{
+    width: 110px;
+    height: 28px;
+    background-color: #13ffff;
+    border: 1px solid #0d9db6;
+    border-radius: 7px;
+    font-family: Squada One;
+    font-size: 18px;
+    padding-left: 2%;
+    margin-top: 3.5%;
+    margin-left: 5%;
+    color: rgb(37, 34, 34);
+    padding-top: 0%;
+    float: left;
+}
