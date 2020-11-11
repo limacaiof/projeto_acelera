@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Squada+One&display=swap');
+/* Importar essa fonte para os demais arquivos CSS se houver necessidade */
+
+body {
+    background-color: rgba(245, 245, 245, 0.883); 
+}
+
+.corpo {
+    display: flex;
+    flex-direction: column;
+}
+
+#navbar {
+    display: flex;
+    padding: 8px;
+    background-color: #181717;
+    position: relative;
+    width: 100%;
+}
+
+#navbar a {
+    text-decoration: none;
+    font-family: 'Squada One', cursive;
+    opacity: initial;
+}
+
+#navbar #logo {
+    margin-left: 5px;
+    font-size: 32px;
+    color: whitesmoke;
+    transition: 0.4s;
+}
+
+#navbar a:hover {
+    opacity: 0.8;
+}
+
+#navbar .botoes {
+    display: flex;
+    position: absolute;
+    margin-right: 50px;
+    font-size: 25px;
+    align-items: baseline;
+    right: 0;
+}
+
+#navbar .botoes #login {
+    margin-right: 20px;
+    color: whitesmoke;
+    transition: 0.4s;
+}
+
+#navbar .botoes #register {
+    color: whitesmoke;
+    transition: 0.4s;
+    padding: 5px 15px;
+    background-color: #51E0FF;
+    border-radius: 13px;
+}
+
+.hamburger {
+    position: block;
+    right: 0;
+    display: none;
+    margin-right: 15px;
+}
+
+.menu{
+    position: fixed;
+    right: 0;
+    display: none;
+    margin-right: 15px;
+}
+
+.menu {
+    text-decoration: none;
+    text-align: center;
+    font-size: 25px;
+    list-style: none;
+    
+}
+
+.menu li a{
+    color: #51E0FF;
+}
+
+.banner {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.banner img {
+    width: 100%;
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    max-width: 1440px;
+}
+
+.blocos {
+    display: flex;
+    width: 100%;
+    min-height: 700px;
+    max-width: 1440px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.blocos .card {
+    background-color: hsl(240, 78%, 98%);
+    min-width: 400px;
+    min-height: 500px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    border-top: 25px solid purple;
+    border-bottom: 25px solid purple;
+
+    -webkit-box-shadow: 0px 9px 15px -2px rgba(183,184,194,1);
+    -moz-box-shadow: 0px 9px 15px -2px rgba(183,184,194,1);
+    box-shadow: 0px 9px 15px -2px rgba(183,184,194,1);
+    
+    font-family: 'Roboto', sans-serif;
+    
+}
+
+hr {
+    width: 300px;
+    height: 2px;
+    
+}
+
+.card-title {
+    align-items: baseline;
+    top: 0; 
+    color: purple;
+    font-size: 25px;
+    padding: 20px;
+    margin-bottom: 60px;
+    
+}
+
+.topicos-list {
+    color: gray;
+    font-size: 17px;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    text-align: center;
+    padding: 0;
+    font-weight: bold;
+}
+
+.footer {
+    height: 60px;
+    width: 100%;
+    background-color: #181717;
+}
+
+/* Limitando o site para o maximo de 1440px*/
+@media only screen and (min-width: 1440px) {
+
+    .banner{
+        display: flex;
+        justify-content: center;
+    }
+    
+
+}
+
+/* Menu login e cadastrar na versão mobile */
+@media only screen and (max-width: 980px) {
+
+    #navbar .botoes{
+        display: none;
+    }
+
+    .hamburger {
+        z-index: 999;
+        cursor: pointer;
+        right: 0; 
+    }
+
+    .hamburger:before {
+        content: "";
+        position: absolute;
+        top: 55%;
+        left: 15%;
+        width: 70%;
+        height: 5%;
+        
+    }
+
+    .hamburger, .menu {
+        display: block;
+        
+    }
+
+    .menu {
+        height: 35vh;
+        margin: 0;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 250px;
+        background-color: #181717e5;
+        padding: 100px 20px;
+        flex-direction: column;
+        border-radius: 0px 0px 5px 20px;
+        transition: 0.5s ease
+    }
+
+    .menu li:first-of-type {
+        margin-top: 10px;
+    }
+
+    .menu.active {
+        right: 0;
+    }
+    
+    .card {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+}
+
+@media only screen and (max-width: 720px) {
+
+    .blocos {
+        justify-content: center;
+        align-items: center;
+    }
+    
+}
+
