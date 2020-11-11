@@ -17,8 +17,14 @@
     <nav class="navbar navbar-expand-lg " id="navbar">
         <a class="navbar-brand" href="#" id="logo">Nome do Negócio</a>
         <div class="botoes">
-            <a class="nav-link" href="./Views/login.php" id="login">Entrar</a>
-            <a class="nav-link" href="#" id="register">Cadastrar</a>
+            <form id="logPc" action="View/logInOut.php" method="POST">
+                <input type="hidden" name="tipo" value="Logar">
+                <a class="nav-link" href="#" onclick="document.getElementById('logPc').submit()" id="login">Entrar</a>
+            </form>
+            <form id="cadPC" action="View/logInOut.php" method="POST">
+                <input type="hidden" name="tipo" value="cadastrar">
+                <a class="nav-link" href="#" onclick="document.getElementById('cadPC').submit()" id="register">Cadastrar</a>
+            </form>
         </div>
 
         <div class="hamburger ">
@@ -28,9 +34,15 @@
             </svg>
         </div>
         <ul class="menu">
-            <li><a href="#">Entrar</a></li>
-            <hr>
-            <li><a href="#">Cadastrar</a></li>
+            <form id="logMobile" action="View/logInOut.php" method="POST">
+                <input type="hidden" name="tipo" value="Logar">
+                <li><a href="#" onclick="document.getElementById('logMobile').submit()">Entrar</a></li>
+            </form>
+            <form id="cadMobile" action="View/logInOut.php" method="POST">
+                <input type="hidden" name="tipo" value="cadastrar">
+                <hr>
+                <li><a href="#" onclick="document.getElementById('cadMobile').submit()">Cadastrar</a></li>
+            </form>
         </ul>
     </nav>
 

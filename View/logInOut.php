@@ -12,18 +12,31 @@
     <link rel="stylesheet" href="../src/css/fonts.css">
     <title>logInOut</title>
     <script>
-        function trocarOpcoes(tipoAcesso = "logar"){
+        function trocarOpcoes(tipoAcesso){
             var mLogin = document.getElementById("log");
             var mCadastrar = document.getElementById("cad");
-            var tipoAcesso = true;
-            if(tipoAcesso == "logar"){
-                mLogin.style.display = "block";
-                mCadastrar.style.display = "none";
-            }else{
+                if(tipoAcesso ===  "Logar"){
+                    mLogin.style.display = "block";
+                    mCadastrar.style.display = "none";
+                } 
+                else if(tipoAcesso === "cadastrar"){
+                    mLogin.style.display = "none";
+                    mCadastrar.style.display = "block";
+                }
+                else{
+                    var tipo = document.getElementById("tipo").value;
+                    if(tipo ===  "Logar"){
+                        mLogin.style.display = "block";
+                        mCadastrar.style.display = "none";
+                    } 
+                    else if(tipo === "cadastrar"){
+                        mLogin.style.display = "none";
+                        mCadastrar.style.display = "block";
+                    }
+                }
                 
-                mLogin.style.display = "none";
-                mCadastrar.style.display = "block";
-            }
+                
+            
         }
        
 
@@ -32,6 +45,17 @@
 </head>
 
 <body>
+    <?php  
+        $tipo = '';
+        // echo "<script>alert('AFFF ".$_POST['tipo']."')</script>";
+        
+        if(isset($_POST['tipo'])){
+            $tipo = $_POST['tipo'];
+            // echo "<script>alert('AFFF ".$_POST['tipo']."')</script>";
+        }   
+    ?>
+    <input id="tipo" type="hidden" value=<?php echo "$tipo";?>>
+    
     
 
     <div class="container">
@@ -48,7 +72,7 @@
                 <button type="submit" class="btn btn-enviar">Entrar</button>
                 <div class="footer-modal">
                     <h2 class="semconta">Ainda não tem conta?</h2>
-                    <button class="btn-cad" type="button" onclick="mudarModal()">Cadastra-se</button>
+                    <button class="btn-cad" type="button" onclick='trocarOpcoes("cadastrar")''>Cadastra-se</button>
                 </div>
             </form>
         </div>
@@ -69,7 +93,7 @@
                     <button type="submit" class="btn btn-enviar">Entrar</button>
                     <div class="footer-modal">
                         <h2 class="semconta">Ainda não tem conta?</h2>
-                        <button class="btn-cad" type="button" onclick="trocarOpcoes('logar')">Logar-se</button>
+                        <button class="btn-cad" type="button" onclick='trocarOpcoes("Logar")'>Logar-se</button>
                     </div>
                 </div>
             </div>
