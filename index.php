@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -34,6 +34,7 @@
         </ul>
     </nav>
 
+<<<<<<< HEAD
     <div class="corpo ">
         <div class="banner">
             <img src="./src/img/banner.png" alt="Facilite ainda hoje a forma como gerencia seu dinheiro!">
@@ -85,6 +86,25 @@
     
         <div class="footer"></div>
     
+=======
+    <div class="corpo">
+        <div class="banner">
+            <img src="./src/img/banner.png" alt="Facilite ainda hoje a forma como gerencia seu dinheiro!">
+        </div>
+
+        <div class="blocos">
+            <div class="card">
+                <p>aaaaaaaaaaaaaaaa</p>
+                <p>bbbbbbbbbbbbbbbbb</p>
+                <p>cccccccccccccccccccc</p>
+            </div>
+            <div class="card">
+                <p>aaaaaaaaaaaaaaaa</p>
+                <p>bbbbbbbbbbbbbbbbb</p>
+                <p>cccccccccccccccccccc</p>
+            </div>
+        </div>
+>>>>>>> ok
     </div>
 
 </body>

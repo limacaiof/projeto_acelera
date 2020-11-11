@@ -107,11 +107,11 @@ body{
 
 */
 .modalCadastrar{
-    width: 100%;
-    height: auto;
+    width: 80%;
+    height: 552px;
     background-color: white;
     margin: auto;
-    margin-top: 5%;
+    margin-top: 2%;
     border-radius: 12px;
     margin-bottom: 10%;
     
@@ -143,18 +143,18 @@ body{
     font-family: Squada one;
     color: white;
     text-align: center;
-    width: 50%;
+    width: 70%;
     font-size: 50px;
     /* background-color: #FF0000; */
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
 }
 .modalCadastrar .logo{
     width: 280px;
     height: 280px;
     background-color: #ffffff;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
     border-radius: 250px;
     margin-bottom: 16.2%;
 }
