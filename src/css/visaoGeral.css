@@ -1,0 +1,29 @@
+body{
+    background-color: aliceblue;
+}
+.right-my{
+    float: right;
+}
+.quebrarFlex{
+    width: 100%;
+}
+
+.nav-item .font{
+    font-family: Squada One;
+    font-size: 25px;
+    color: white
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255,255,255); 
+}
+.alerts{
+    margin-left: auto;
+}
+.nav-tabss,.colorTabs{
+    background-color: #00D1ED;
+}
+.font2{
+    font-family: Squada One;
+    font-size: 20px;
+    color: rgb(51, 47, 47)
+}
