@@ -9,10 +9,11 @@
     <?php
         require './componentes/bootstrap4-5-2.php';
     ?>
-    
-    <link rel="stylesheet" href="../src/css/visaoGeral.css">
+
+    <link rel="stylesheet" href="../src/css/despesas.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
 </head>
+
 <body>
     <!-- COMPONENTE MENU  KKK  -->
     <?php
@@ -49,7 +50,148 @@
             </div>
         </ul>
     </div>
-    
+    <div class="container content">
+        <h1>Minhas Despesas</h1>
+        <div class="opcoes">
+            <div class="acoes">
+                <button type="button" class="btn-my acao1">Adicionar Despesas</button>
+                <button type="button" class="btn-my acao2">Remover Despesas</button>
+            </div>
+
+            <form action="#" method="post">
+                <button typ="button/submit" class="btn-form-my">Buscar</button>
+                <input type="text" class="input-form-my" name="search" id="search" placeholder="Procurar">
+            </form>
+        </div>
+        <table class="table tabela font2">
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Default</td>
+                    <td>Defaultson</td>
+                    <td>def@somemail.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+
+                </tr>
+                <tr class="table-primary">
+                    <td>Primary</td>
+                    <td>Joe</td>
+                    <td>joe@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-success">
+                    <td>Success</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-danger">
+                    <td>Danger</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-info">
+                    <td>Info</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-warning">
+                    <td>Warning</td>
+                    <td>Refs</td>
+                    <td>bo@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr>
+                    <td>Default</td>
+                    <td>Defaultson</td>
+                    <td>def@somemail.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-primary">
+                    <td>Primary</td>
+                    <td>Joe</td>
+                    <td>joe@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-success">
+                    <td>Success</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-danger">
+                    <td>Danger</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-info">
+                    <td>Info</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                <tr class="table-warning">
+                    <td>Warning</td>
+                    <td>Refs</td>
+                    <td>bo@example.com</td>
+                    <td>
+                        <button class="tbl-btn1" type="button">Editar</button>    
+                        <button class="tbl-btn2" type="button">Deletar</button>    
+                    </td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-my">
+        <div class="container">
+            <p>@Direitos Autorais 2020</p>
+        </div>            
+    </footer>
 
 </body>
 

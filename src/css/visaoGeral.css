@@ -27,3 +27,7 @@ body{
     font-size: 20px;
     color: rgb(51, 47, 47)
 }
+.content{
+    height: 1000px;
+    background-color: white;
+}
