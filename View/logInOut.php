@@ -115,3 +115,12 @@
 </body>
 
 </html>
+
+
+<?php
+//cadastro incompleto (acho que da pra ver :v)
+$nome = trim($_POST['nome']);
+$email = trim($_POST['email']);
+$senha = trim($_POST['senha']);
+
+?>
