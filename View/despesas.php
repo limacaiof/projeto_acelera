@@ -40,14 +40,6 @@
             <li class="nav-item">
                 <a class="nav-link font2" href="#">Limites</a>
             </li>
-            <div class="nav-item alerts">
-                <li class="nav-item right-my">
-                    <a class="nav-link font2" href="#">Alerta</a>
-                </li>
-                <li class="nav-item right-my">
-                    <a class="nav-link font2" href="#">Notificações</a>
-                </li>
-            </div>
         </ul>
     </div>
     <div class="container content">
@@ -64,12 +56,13 @@
             </form>
         </div>
         <table class="table tabela font2">
+            <!-- table-warning table-info table-danger-->
             <thead>
                 <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                    <th>Ações</th>
+                    <th>Despesas</th>
+                    <th>Valor</th>
+                    <th>Data Vencimento</th>
+                    <th>Categoria</th>
                 </tr>
             </thead>
             <tbody>
@@ -83,7 +76,7 @@
                     </td>
 
                 </tr>
-                <tr class="table-primary">
+                <tr class="">
                     <td>Primary</td>
                     <td>Joe</td>
                     <td>joe@example.com</td>
@@ -92,7 +85,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-success">
+                <tr class="">
                     <td>Success</td>
                     <td>Doe</td>
                     <td>john@example.com</td>
@@ -101,7 +94,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-danger">
+                <tr class="">
                     <td>Danger</td>
                     <td>Moe</td>
                     <td>mary@example.com</td>
@@ -110,7 +103,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-info">
+                <tr class="">
                     <td>Info</td>
                     <td>Dooley</td>
                     <td>july@example.com</td>
@@ -119,7 +112,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-warning">
+                <tr class="">
                     <td>Warning</td>
                     <td>Refs</td>
                     <td>bo@example.com</td>
@@ -137,7 +130,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-primary">
+                <tr class="">
                     <td>Primary</td>
                     <td>Joe</td>
                     <td>joe@example.com</td>
@@ -146,7 +139,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-success">
+                <tr class="">
                     <td>Success</td>
                     <td>Doe</td>
                     <td>john@example.com</td>
@@ -155,7 +148,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-danger">
+                <tr class="">
                     <td>Danger</td>
                     <td>Moe</td>
                     <td>mary@example.com</td>
@@ -164,7 +157,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-info">
+                <tr class="">
                     <td>Info</td>
                     <td>Dooley</td>
                     <td>july@example.com</td>
@@ -173,7 +166,7 @@
                         <button class="tbl-btn2" type="button">Deletar</button>    
                     </td>
                 </tr>
-                <tr class="table-warning">
+                <tr class="">
                     <td>Warning</td>
                     <td>Refs</td>
                     <td>bo@example.com</td>

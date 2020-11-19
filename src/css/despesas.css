@@ -1,5 +1,5 @@
 body{
-    background-color: aliceblue;
+    background-color: white;
 }
 .right-my{
     float: right;
@@ -51,6 +51,7 @@ body{
     margin: 10px;
     /* background-color: #00D1ED; */
     width: 40%;
+    
 }
 
 .btn-my{
@@ -117,13 +118,16 @@ body{
     border-radius: 5px;
     color: #544444;
     font-family: Squada One;
-    font-size: 15px;
+    font-size: 17px;
+    width: 30%;
+
 }
 .tbl-btn2{
+    width: 30%;
     background-color: #EB4242;
     border: 1px solid #EF2A2A;
     border-radius: 5px;
     color: white;
     font-family: Squada One;
-    font-size: 15px;
+    font-size: 17px;
 }

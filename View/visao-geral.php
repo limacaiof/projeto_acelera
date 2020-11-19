@@ -20,7 +20,6 @@
     ?>
     <div class="colorTabs">
         <ul class="nav nav-tabs container">
-
             <li class="nav-item">
                 <a class="nav-link font2 active" href="#">Visão Geral</a>
             </li>
@@ -39,14 +38,6 @@
             <li class="nav-item">
                 <a class="nav-link font2" href="#">Limites</a>
             </li>
-            <div class="nav-item alerts">
-                <li class="nav-item right-my">
-                    <a class="nav-link font2" href="#">Alerta</a>
-                </li>
-                <li class="nav-item right-my">
-                    <a class="nav-link font2" href="#">Notificações</a>
-                </li>
-            </div>
         </ul>
     </div>
     <div class="container content">
