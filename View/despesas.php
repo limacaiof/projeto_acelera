@@ -12,13 +12,16 @@
 
     <link rel="stylesheet" href="../src/css/despesas.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
+    <link rel="stylesheet" href="../src/css/geral.css">
+    <script type="text/javascript" src="../src/js/notication.js"></script>
 </head>
 
 <body>
-    <!-- COMPONENTE MENU  KKK  -->
+    <!-- COMPONENTE MENU  -->
     <?php
         require './componentes/menu.php';
     ?>
+    <!-- SUB MENU  -->
     <div class="colorTabs">
         <ul class="nav nav-tabs container">
 
@@ -42,31 +45,37 @@
             </li>
         </ul>
     </div>
-    <div class="container content">
+    <!-- DICAS BUSCA TABELA DE DESPESAS  -->
+
+    <div class="container details-expenses">
         <h1>Minhas Despesas</h1>
         <div class="opcoes">
-            <div class="acoes">
-                <button type="button" class="btn-my acao1">Adicionar Despesas</button>
-                <button type="button" class="btn-my acao2">Remover Despesas</button>
-            </div>
-
+            <div class="help-expenses">
+                <p>Despesas são os gastos básicos que
+                    normalment pagamos todo o mês, ou seja, 
+                        são recursos necessario para você. 
+                </p>
+                <icon>ADD</icon>
+            </div> 
             <form action="#" method="post">
-                <button typ="button/submit" class="btn-form-my">Buscar</button>
                 <input type="text" class="input-form-my" name="search" id="search" placeholder="Procurar">
+                <button typ="button/submit" class="btn-form-my">Buscar</button>
             </form>
         </div>
         <table class="table tabela font2">
             <!-- table-warning table-info table-danger-->
             <thead>
                 <tr>
+                    <th>Nº</th>
                     <th>Despesas</th>
                     <th>Valor</th>
                     <th>Data Vencimento</th>
-                    <th>Categoria</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
+                    <td>1</td>
                     <td>Default</td>
                     <td>Defaultson</td>
                     <td>def@somemail.com</td>
@@ -77,6 +86,8 @@
 
                 </tr>
                 <tr class="">
+                    <td>2</td>
+
                     <td>Primary</td>
                     <td>Joe</td>
                     <td>joe@example.com</td>
@@ -86,6 +97,7 @@
                     </td>
                 </tr>
                 <tr class="">
+                    <td>3</td>
                     <td>Success</td>
                     <td>Doe</td>
                     <td>john@example.com</td>
@@ -95,6 +107,7 @@
                     </td>
                 </tr>
                 <tr class="">
+                    <td>4</td>
                     <td>Danger</td>
                     <td>Moe</td>
                     <td>mary@example.com</td>
@@ -104,72 +117,10 @@
                     </td>
                 </tr>
                 <tr class="">
+                    <td>5</td>
                     <td>Info</td>
                     <td>Dooley</td>
                     <td>july@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>Warning</td>
-                    <td>Refs</td>
-                    <td>bo@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr>
-                    <td>Default</td>
-                    <td>Defaultson</td>
-                    <td>def@somemail.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>Primary</td>
-                    <td>Joe</td>
-                    <td>joe@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>Success</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>Danger</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>Info</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>Warning</td>
-                    <td>Refs</td>
-                    <td>bo@example.com</td>
                     <td>
                         <button class="tbl-btn1" type="button">Editar</button>    
                         <button class="tbl-btn2" type="button">Deletar</button>    
@@ -179,12 +130,29 @@
             </tbody>
         </table>
     </div>
+    <!-- GRAFICO DE DESPESAS  -->
+
+    <section class="spend-graphic container">
+        <h1>Gráficos de Gastos</h1>
+        <div>
+            <grafic></grafic>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer class="footer-my">
         <div class="container">
             <p>@Direitos Autorais 2020</p>
         </div>            
     </footer>
+
+    <!-- MODAIS  -->
+    <!-- NOTIFICAÇÃO  -->
+    
+
+    
+
+
 
 </body>
 

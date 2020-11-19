@@ -118,7 +118,7 @@
 
 
 <?php
-//cadastro incompleto (acho que da pra ver :v)
+//cadastro incompleto (acho que da pra ver kkkkk :v)
 $nome = trim($_POST['nome']);
 $email = trim($_POST['email']);
 $senha = trim($_POST['senha']);

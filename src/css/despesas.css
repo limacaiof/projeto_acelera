@@ -27,31 +27,40 @@ body{
     font-size: 20px;
     color: rgb(51, 47, 47)
 }
-.content{
-    height: 1000px;
-    background-color: white;
+
+
+.opcoes{
+    display: flex;
+    flex-wrap: no-wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /* background-color: #056C03; */
+}
+.help-expenses{
+    width: 40%;
+    padding: 15px 2%;
+    background-color: #F3FFFD;
+    display: flex;
+    justify-content: flex-start;
+    border: 3px solid #09F0C7;
+    border-radius: 20px;
+}
+.help-expenses p{
+
+    font-family: Squada One;
+    font-size: 20px;
+    color: #368B90;
+    word-wrap: break-word;
 }
 
-.content h1{
-    font-family: Squada One;
-    font-size: 35px;
-    color: rgb(63, 56, 56);
-    
-    /*Somente a parte*/
-    padding-top: 3%;
-    padding-left: 2.5%;
-}
-.content .opcoes{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-.content .opcoes form, .content .opcoes .acoes{
+.opcoes form{
     height: 40px;
-    margin: 10px;
+    margin-top: auto;
     /* background-color: #00D1ED; */
     width: 40%;
-    
+    display: flex;
+    justify-content: flex-end;
 }
 
 .btn-my{
@@ -59,22 +68,18 @@ body{
     height: 40px;
     margin-left: 4%;
 }
-
-.acao1{
-    background-color: #2889E1;
-    border: 2px solid #0500FF;
-    color: white;
+.details-expenses{
+    margin: 50px auto;
+}
+.details-expenses h1{
     font-family: Squada One;
-    font-size: 22px;
+    font-size: 35px;
+    color: rgb(63, 56, 56);
+    
+    /*Somente a parte*/
+    padding-top: 0%;
 }
 
-.acao2{
-    background-color: #57CA63;
-    border: 2px solid #056C03;
-    color: white;
-    font-family: Squada One;
-    font-size: 22px;
-}
 .input-form-my{
     background-color: white;
     border: 2px solid #BCB3B3;
@@ -96,9 +101,8 @@ body{
 }
 
 .tabela{
-    margin-left: 2.5%;
-    width: 96.7%;
-    margin-top: 3%;
+    width: 100%;
+    margin-top: 8%;
 }
 .footer-my{
     width: 100%;
@@ -131,3 +135,21 @@ body{
     font-family: Squada One;
     font-size: 17px;
 }
+
+.spend-graphic{
+    width: 100%;
+    height: 500px;
+    /* background-color: #EB4242; */
+    margin: 100px auto;
+
+}
+
+.spend-graphic div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 5% auto;
+    height: 70%;
+    background-color: #00C2FF;
+}
+
