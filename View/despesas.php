@@ -17,6 +17,7 @@
 </head>
 
 <body>
+ 
     <!-- COMPONENTE MENU  -->
     <?php
         require './componentes/menu.php';
@@ -145,14 +146,6 @@
             <p>@Direitos Autorais 2020</p>
         </div>            
     </footer>
-
-    <!-- MODAIS  -->
-    <!-- NOTIFICAÇÃO  -->
-    
-
-    
-
-
 
 </body>
 

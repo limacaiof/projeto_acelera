@@ -1,7 +1,35 @@
 .notication{
     width: 500px;
-    height: 400px;
+    height: auto;
     margin: auto 270px;
-    background-color: red;
+    background-color: rgb(255, 255, 255 );
+    /* border: 1px solid black; */
+    border-radius: 0px;
+    padding: 0px;
+    border: 2px solid #879e07 ;
+
 }
 
+.main-modal{
+    width: 100%;
+    background-color: #d1f119;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+    font-size: 22px;
+    font-family: Squada One;
+    padding: 0px 15px;
+    padding-top: 8px;   
+}
+
+.main-modal h1{
+    font-size: 25px;
+}
+
+.content-modal{
+    display: flex;
+    padding: 10px;
+}
+.cards{
+    background-color: brown;
+}

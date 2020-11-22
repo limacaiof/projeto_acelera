@@ -14,12 +14,24 @@
             </li>
             <li class="nav-item right-my">
                 <a class="nav-link font" onclick="openNotication()" href="#">Notificação</a>
-                <div id="notifi" class='notication dropdown-menu dropdown-menu-right show'>
-                    <a href="#" onclick="closeNotication()">fechar</a>
+                    <ul id="notifi" class='notication dropdown-menu dropdown-menu-right'>
+                        <!-- Modal de notificacao -->
+                        <div class="main-modal navbar-nav">
+                            <h1>Notificação</h1>
+                            <a href="#" onclick="closeNotication()">fechar</a>
+                        </div>
+                        <div class="content-modal">
+                            <p class='cards'>Quando</p>
+                            <p class='cards'>Sua addicao na depesas</p>
+                            <p class='cards'> horario</p>
+                        </div>
+                        
+
+                    </ul>
                 </div>
             </li>
         </div>
     </ul>
 </nav>
 
-    
+
