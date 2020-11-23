@@ -27,15 +27,11 @@ body{
     font-size: 20px;
     color: rgb(51, 47, 47)
 }
-
-
 .opcoes{
     display: flex;
     flex-wrap: no-wrap;
     justify-content: space-between;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    /* background-color: #056C03; */
+    margin: 30px 0px;
 }
 .help-expenses{
     width: 40%;
@@ -47,7 +43,7 @@ body{
     border-radius: 20px;
 }
 .help-expenses p{
-
+    
     font-family: Squada One;
     font-size: 20px;
     color: #368B90;
@@ -57,26 +53,15 @@ body{
 .opcoes form{
     height: 40px;
     margin-top: auto;
-    /* background-color: #00D1ED; */
     width: 40%;
     display: flex;
     justify-content: flex-end;
 }
-
-.btn-my{
-    width: 45%;
-    height: 40px;
-    margin-left: 4%;
-}
 .details-expenses{
-    margin: 50px auto;
-}
-.details-expenses h1{
     font-family: Squada One;
     font-size: 35px;
     color: rgb(63, 56, 56);
-    
-    /*Somente a parte*/
+    margin: 40px auto;
     padding-top: 0%;
 }
 
@@ -102,7 +87,7 @@ body{
 
 .tabela{
     width: 100%;
-    margin-top: 8%;
+    margin-top: 20px;
 }
 .footer-my{
     width: 100%;
@@ -153,3 +138,17 @@ body{
     background-color: #00C2FF;
 }
 
+.title-detais{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-my-despesas{
+    width: 20%;
+    background-color: #3CDD39;
+    border: 2px solid #3FAC3D;
+    color: white;
+    font-family: Squada One;
+    font-size: 22px;
+}
