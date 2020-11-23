@@ -1,35 +1,34 @@
-.notication{
-    width: 500px;
-    height: auto;
-    margin: auto 270px;
-    background-color: rgb(255, 255, 255 );
-    /* border: 1px solid black; */
-    border-radius: 0px;
-    padding: 0px;
-    border: 2px solid #879e07 ;
-
-}
-
-.main-modal{
+.notification{
     width: 100%;
-    background-color: #d1f119;
-    display: flex;
-    justify-content: space-between;
-    margin: 0px;
-    font-size: 22px;
+    padding: 0% 2%;
+    font-size: medium;
     font-family: Squada One;
-    padding: 0px 15px;
-    padding-top: 8px;   
-}
-
-.main-modal h1{
-    font-size: 25px;
-}
-
-.content-modal{
     display: flex;
-    padding: 10px;
+    align-items: baseline;
+    margin-top: 10px;
 }
+.notification h1{
+    font-size: x-large;
+    color: rgb(216, 20, 20);
+
+}
+.notification p{
+    font-size: x-large;
+    color: rgb(26, 24, 24);
+}
+
 .cards{
-    background-color: brown;
+    flex: 1 0 auto;
+}
+
+.modal-header{
+    background-color: #00D1ED;
+}
+
+.title-modal{
+    font-size: x-large;
+    font-family: Squada One;
+}
+.ionicon{
+    
 }
