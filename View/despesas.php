@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn btn-secondary font3" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary font3">Nova Despesa</button>
+                    <button type="button" class="btn btn-primary font3">Nova Despesagit</button>
                 </div>
                 
               </form>
