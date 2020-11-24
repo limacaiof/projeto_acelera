@@ -9,14 +9,64 @@
     <?php
         require './componentes/bootstrap4-5-2.php';
     ?>
-
+   
     <link rel="stylesheet" href="../src/css/despesas.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
     <link rel="stylesheet" href="../src/css/geral.css">
-    <script type="text/javascript" src="../src/js/notication.js"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
+    <script src="../src/js/charts.js"></script>
+
+    
 </head>
 
 <body>
+<!-- Modal Despesas-->
+<div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font4" id="exampleModalLongTitle">Nova Despesas</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="recipient-name" class="col-form-label font3">Nome:</label>
+                  <input type="text" class="form-control font3" id="recipient-name">
+                </div>
+                <div class="form-group form-group-flex-my">
+                    <div>
+                        <label for="message-text" class="col-form-label font3">Valor:</label>
+                        <input type="text" class="form-control font3" id="recipient-name">
+                    </div>
+                    
+                    <div>
+                        <label for="message-text" class="col-form-label font3">Data:</label>
+                        <input type="text" class="form-control font3" id="recipient-name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label font3">Categoria:</label>
+                    <input type="text" class="form-control font3" placeholder="Despesas ou Gastos" id="recipient-name">
+                </div>
+                <div class="form-group">
+                    <label for="recipient-name" class="col-form-label font3">Forma de Pagamento:</label>
+                    <input type="text" class="form-control font3" placeholder="Despesas ou Gastos" id="recipient-name">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-secondary font3" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary font3">Nova Despesa</button>
+                </div>
+                
+              </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
  
     <!-- COMPONENTE MENU  -->
     <?php
@@ -49,20 +99,28 @@
     <!-- DICAS BUSCA TABELA DE DESPESAS  -->
 
     <div class="container details-expenses">
-        <h1>Minhas Despesas</h1>
-        <div class="opcoes">
+        <div class="title-detais">
+            <h1>Minhas Despesas</h1>
             <div class="help-expenses">
                 <p>Despesas são os gastos básicos que
                     normalment pagamos todo o mês, ou seja, 
                         são recursos necessario para você. 
                 </p>
-                <icon>ADD</icon>
+                <icon> 
+                    <?php
+                        require '../src/svg/alert-circle-outline.php';
+                    ?>
+                </icon>
             </div> 
+        </div>
+        
+        <div class="opcoes">
+            <button typ="button/submit" id="addDespesas" data-toggle="modal" data-target="#exampleModalLong"class="btn-my-despesas">Adicionar</button>
             <form action="#" method="post">
                 <input type="text" class="input-form-my" name="search" id="search" placeholder="Procurar">
                 <button typ="button/submit" class="btn-form-my">Buscar</button>
             </form>
-        </div>
+         </div>
         <table class="table tabela font2">
             <!-- table-warning table-info table-danger-->
             <thead>
@@ -135,8 +193,9 @@
 
     <section class="spend-graphic container">
         <h1>Gráficos de Gastos</h1>
-        <div>
-            <grafic></grafic>
+        <div id="grafico">
+            <canvas id="myChart" max-width="100%" max-height="100%"></canvas>
+           
         </div>
     </section>
     
@@ -148,5 +207,6 @@
     </footer>
 
 </body>
-
+<script type="text/javascript" src="../src/js/notication.js"></script>
+<script type="text/javascript" src="../src/js/depesas.js"></script>
 </html>
