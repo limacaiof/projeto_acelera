@@ -83,7 +83,7 @@
                 <a class="nav-link font2 active" href="#">Despesas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font2" href="#">Planeja Eventos</a>
+                <a class="nav-link font2" href="planejarEventos.php">Planeja Eventos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link font2" href="#">Gastos</a>
