@@ -118,9 +118,81 @@
 
 
 <?php
-//cadastro incompleto (acho que da pra ver kkkkk :v)
+//cadastro necessita de testes
 $nome = trim($_POST['nome']);
 $email = trim($_POST['email']);
 $senha = trim($_POST['senha']);
+if ((!$nome) ||  (!$email) || (!$senha)){
 
+    echo "ERRO: <br /><br />";
+    
+    if (!$nome){
+    
+    echo "Nome é requerido.<br />";
+    
+    }
+    
+    
+    if (!$email){
+    
+    echo "Email é um campo requerido.<br /><br />";
+    
+    }
+    
+    if (!$senha){
+    
+    echo "senha é requerido.<br /><br />";
+    
+    }
+    
+    echo "Preencha os campos abaixo: <br /><br />";
+    
+    }else{
+    
+ //checar dados
+    
+    $sql_email_check = pg_query(
+    
+    "SELECT COUNT(usuario_id) FROM usuarios WHERE email='{$email}'"
+    
+    );
+    $sql_usuario_check = pg_query(
+
+        "SELECT COUNT(usuario_id) FROM usuarios WHERE email='{$email}'"
+        
+        );
+        
+        $eReg = pg_fetch_array($sql_email_check);
+        
+        $email_check = $eReg[0];
+
+        if ($email_check > 0){
+        
+        echo "Este email já está sendo utilizado.<br /><br />";
+        
+        unset($email);
+        
+        }
+        else{
+            $sql = pg_query(
+
+                "INSERT INTO usuarios
+                (nome, email, senha)
+                
+                VALUES
+                ('$nome', '$email',  '$senha', )")
+                
+                or die( pg_error()
+                
+                );
+                
+                if (!$sql){
+                
+                echo "Ocorreu um erro ao criar sua conta, entre em contato.";
+                
+                }else{
+                
+                $usuario_id = pg_insert_id();
+
+                }
 ?>
