@@ -196,3 +196,61 @@ if ((!$nome) ||  (!$email) || (!$senha)){
 
                 }
 ?>
+
+<?php
+//login 
+session_start(); 
+
+$email = $_POST['email'];
+$senha = $_POST['senha'];
+
+if ((!$usuario) || (!$senha)){
+
+echo "Por favor, todos campos devem ser preenchidos! <br /><br />";
+
+}else{
+
+$senha = ($senha);
+
+$sql = pg_query(
+
+"SELECT * FROM usuarios
+WHERE email='{$email}'
+AND senha='{$senha}'
+"
+);
+
+$login_check = pg_num_rows($sql);
+
+if ($login_check > 0){
+
+while ($row = pg_fetch_array($sql)){
+
+foreach ($row AS $key => $val){
+
+$$key = stripslashes( $val );
+
+}
+
+$_SESSION['usuario_id'] = $usuario_id;
+$_SESSION['nome'] = $nome;
+$_SESSION['email'] = $email;
+
+);
+
+
+}
+
+}
+else{
+
+echo "Você não pode logar-se! Este usuário e/ou senha não são válidos!<br />
+Por favor tente novamente!<br />";
+
+
+
+   }
+
+}
+
+?>
