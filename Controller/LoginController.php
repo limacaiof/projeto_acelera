@@ -23,7 +23,7 @@
         } else {
 
             $_SESSION['usuario'] = serialize($usuario); // guarda um objeto inteiro na sessao do navegador, ao inves de ficar cirando uma session diferente pra cada atributo
-            header("Location: http://localhost/projeto_acelera/test.php");
+            header("Location: http://localhost/projeto_acelera/View/visao-geral.php");
             exit();
         }
         
