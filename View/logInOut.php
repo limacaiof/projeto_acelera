@@ -66,7 +66,7 @@
             <div id="all-one">
                 <h1>Logar</h1>
                 <hr>
-                <form action="Controller/" method="POST">
+                <form action="../Controller/LoginController.php?acao=login" method="POST">
                     <input class="camp" type="text" name="email" id="emailId" placeholder="email">
                     <input class="camp" type="password" name="senha" id="senhaId" placeholder="senha">
                     <div class="form-check ckbox">
@@ -93,14 +93,16 @@
                     <div class="account col-sm-7">
                         <h1>Criar Conta</h1>
                         <hr>
-                        <input class="camp" type="text" name="nome" id="nomeIdC" placeholder="nome">
-                        <input class="camp" type="text" name="email" id="emailIdC" placeholder="email">
-                        <input class="camp" type="password" name="senha" id="senhaIdC" placeholder="senha">
-                        <button type="submit" class="btn btn-enviar">Entrar</button>
-                        <div class="footer-modal">
-                            <h2 class="semconta">Ainda não tem conta?</h2>
-                            <button class="btn-cad" type="button" onclick='trocarOpcoes("Logar")'>Logar-se</button>
-                        </div>
+                        <form action="../Controller/LoginController.php?acao=cadastrar" method="post">
+                            <input class="camp" type="text" name="nome" id="nomeIdC" placeholder="nome">
+                            <input class="camp" type="text" name="email" id="emailIdC" placeholder="email">
+                            <input class="camp" type="password" name="senha" id="senhaIdC" placeholder="senha">
+                            <button type="submit" class="btn btn-enviar">Entrar</button>
+                            <div class="footer-modal">
+                                <h2 class="semconta">Ainda não tem conta?</h2>
+                                <button class="btn-cad" type="button" onclick='trocarOpcoes("Logar")'>Logar-se</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -113,144 +115,6 @@
     trocarOpcoes("asdsd");
 </script>
 </body>
-
 </html>
 
 
-<?php
-//cadastro necessita de testes
-$nome = trim($_POST['nome']);
-$email = trim($_POST['email']);
-$senha = trim($_POST['senha']);
-if ((!$nome) ||  (!$email) || (!$senha)){
-
-    echo "ERRO: <br /><br />";
-    
-    if (!$nome){
-    
-    echo "Nome é requerido.<br />";
-    
-    }
-    
-    
-    if (!$email){
-    
-    echo "Email é um campo requerido.<br /><br />";
-    
-    }
-    
-    if (!$senha){
-    
-    echo "senha é requerido.<br /><br />";
-    
-    }
-    
-    echo "Preencha os campos abaixo: <br /><br />";
-    
-    }else{
-    
- //checar dados
-    
-    $sql_email_check = pg_query(
-    
-    "SELECT COUNT(usuario_id) FROM usuarios WHERE email='{$email}'"
-    
-    );
-    $sql_usuario_check = pg_query(
-
-        "SELECT COUNT(usuario_id) FROM usuarios WHERE email='{$email}'"
-        
-        );
-        
-        $eReg = pg_fetch_array($sql_email_check);
-        
-        $email_check = $eReg[0];
-
-        if ($email_check > 0){
-        
-        echo "Este email já está sendo utilizado.<br /><br />";
-        
-        unset($email);
-        
-        }
-        else{
-            $sql = pg_query(
-
-                "INSERT INTO usuarios
-                (nome, email, senha)
-                
-                VALUES
-                ('$nome', '$email',  '$senha', )")
-                
-                or die( pg_error()
-                
-                );
-                
-                if (!$sql){
-                
-                echo "Ocorreu um erro ao criar sua conta, entre em contato.";
-                
-                }else{
-                
-                $usuario_id = pg_insert_id();
-
-                }
-?>
-
-<?php
-//login 
-session_start(); 
-
-$email = $_POST['email'];
-$senha = $_POST['senha'];
-
-if ((!$usuario) || (!$senha)){
-
-echo "Por favor, todos campos devem ser preenchidos! <br /><br />";
-
-}else{
-
-$senha = ($senha);
-
-$sql = pg_query(
-
-"SELECT * FROM usuarios
-WHERE email='{$email}'
-AND senha='{$senha}'
-"
-);
-
-$login_check = pg_num_rows($sql);
-
-if ($login_check > 0){
-
-while ($row = pg_fetch_array($sql)){
-
-foreach ($row AS $key => $val){
-
-$$key = stripslashes( $val );
-
-}
-
-$_SESSION['usuario_id'] = $usuario_id;
-$_SESSION['nome'] = $nome;
-$_SESSION['email'] = $email;
-
-);
-
-
-}
-
-}
-else{
-
-echo "Você não pode logar-se! Este usuário e/ou senha não são válidos!<br />
-Por favor tente novamente!<br />";
-
-
-
-   }
-
-}
-
-?>
