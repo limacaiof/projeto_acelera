@@ -21,6 +21,22 @@
 body{
     background-color: #001F3F;
 }
+.input{
+ width: 100%;
+ border: none;
+}
+.input span.error{
+    display: flex;
+    padding: 0;
+    background-color: burlywood;
+    width: 60%;
+    margin: auto;
+}
+span.error.active{
+    border: 1px solid red;
+    padding: 0.4em;
+}
+
 .modalLogin .camp{
     width: 60%;
     height: 50px;
@@ -32,6 +48,10 @@ body{
     margin-top: 4%;
     margin-left: 20%;
     font-size: 22px;
+
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
 
 }
 
@@ -228,3 +248,7 @@ body{
     padding-top: 0%;
     float: left;
 }
+/*
+ * FIM MODAL DE CADASTRAR
+ */
+

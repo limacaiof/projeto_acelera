@@ -66,9 +66,15 @@
             <div id="all-one">
                 <h1>Logar</h1>
                 <hr>
-                <form action="Controller/" method="POST">
-                    <input class="camp" type="text" name="email" id="emailId" placeholder="email">
-                    <input class="camp" type="password" name="senha" id="senhaId" placeholder="senha">
+                <form class="formLogin" action="Controller/" method="POST">
+                    <div class="input">
+                        <input class="camp" type="emailw" name="email" id="emailId" placeholder="email" required>
+                        <span class="error "></span>
+                    </div>
+                    <div class="input">
+                        <input class="camp" type="password" name="senha" id="senhaId" placeholder="senha" required>
+                        <span class="error"></span>
+                    </div>                 
                     <div class="form-check ckbox">
                         <input type="checkbox" class="box" id="boxId">
                         <p class="boxtxt">Manter-me Logado</p>
@@ -87,14 +93,14 @@
                     <div class="banner col-sm-5">
                         <h1>Seja Bem Vindo ! ! !</h1>
                         <div class="logo">
-                            <img src="logotipo" alt="">
+                            <img src="" alt="">
                         </div>
                     </div>
                     <div class="account col-sm-7">
                         <h1>Criar Conta</h1>
                         <hr>
                         <input class="camp" type="text" name="nome" id="nomeIdC" placeholder="nome">
-                        <input class="camp" type="text" name="email" id="emailIdC" placeholder="email">
+                        <input class="camp" type="email" name="email" id="emailIdC" placeholder="email">
                         <input class="camp" type="password" name="senha" id="senhaIdC" placeholder="senha">
                         <button type="submit" class="btn btn-enviar">Entrar</button>
                         <div class="footer-modal">
@@ -115,12 +121,12 @@
 </body>
 
 </html>
-
+<script src="../src/js/loginCadin.js" ></script>
 
 <?php
 //cadastro incompleto (acho que da pra ver kkkkk :v)
-$nome = trim($_POST['nome']);
-$email = trim($_POST['email']);
-$senha = trim($_POST['senha']);
+//$nome = trim($_POST['nome']);
+//$email = trim($_POST['email']);
+//$senha = trim($_POST['senha']);
 
 ?>
