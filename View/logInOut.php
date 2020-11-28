@@ -66,7 +66,6 @@
             <div id="all-one">
                 <h1>Logar</h1>
                 <hr>
-<<<<<<< HEAD
                 <form class="formLogin" action="Controller/" method="POST">
                     <div class="input">
                         <input class="camp" type="emailw" name="email" id="emailId" placeholder="email" required>
@@ -76,11 +75,6 @@
                         <input class="camp" type="password" name="senha" id="senhaId" placeholder="senha" required>
                         <span class="error"></span>
                     </div>                 
-=======
-                <form action="../Controller/LoginController.php?acao=login" method="POST">
-                    <input class="camp" type="text" name="email" id="emailId" placeholder="email">
-                    <input class="camp" type="password" name="senha" id="senhaId" placeholder="senha">
->>>>>>> 0933a8ae5504917e33e509c2289720de3c6f1c75
                     <div class="form-check ckbox">
                         <input type="checkbox" class="box" id="boxId">
                         <p class="boxtxt">Manter-me Logado</p>
@@ -105,7 +99,6 @@
                     <div class="account col-sm-7">
                         <h1>Criar Conta</h1>
                         <hr>
-<<<<<<< HEAD
                         <input class="camp" type="text" name="nome" id="nomeIdC" placeholder="nome">
                         <input class="camp" type="email" name="email" id="emailIdC" placeholder="email">
                         <input class="camp" type="password" name="senha" id="senhaIdC" placeholder="senha">
@@ -114,18 +107,6 @@
                             <h2 class="semconta">Ainda não tem conta?</h2>
                             <button class="btn-cad" type="button" onclick='trocarOpcoes("Logar")'>Logar-se</button>
                         </div>
-=======
-                        <form action="../Controller/LoginController.php?acao=cadastrar" method="post">
-                            <input class="camp" type="text" name="nome" id="nomeIdC" placeholder="nome">
-                            <input class="camp" type="text" name="email" id="emailIdC" placeholder="email">
-                            <input class="camp" type="password" name="senha" id="senhaIdC" placeholder="senha">
-                            <button type="submit" class="btn btn-enviar">Entrar</button>
-                            <div class="footer-modal">
-                                <h2 class="semconta">Ainda não tem conta?</h2>
-                                <button class="btn-cad" type="button" onclick='trocarOpcoes("Logar")'>Logar-se</button>
-                            </div>
-                        </form>
->>>>>>> 0933a8ae5504917e33e509c2289720de3c6f1c75
                     </div>
                 </div>
             </div>
@@ -138,10 +119,10 @@
     trocarOpcoes("asdsd");
 </script>
 </body>
+
 </html>
 <script src="../src/js/loginCadin.js" ></script>
 
-<<<<<<< HEAD
 <?php
 //cadastro incompleto (acho que da pra ver kkkkk :v)
 //$nome = trim($_POST['nome']);
@@ -149,5 +130,3 @@
 //$senha = trim($_POST['senha']);
 
 ?>
-=======
->>>>>>> 0933a8ae5504917e33e509c2289720de3c6f1c75
