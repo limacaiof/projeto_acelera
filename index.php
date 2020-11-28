@@ -47,6 +47,38 @@
     </nav>
 
     <div class="corpo ">
+
+    <!-- Checa se há mensagem de erro a serem exibidas e em seguidas ja exclui elas da sessão -->
+        <?php 
+            session_start();
+            if(isset($_SESSION['erro-login'])): 
+        ?>
+
+            <div class="alert alert-danger" role="alert" style="margin: 30px; text-align: center;">
+                <?php echo $_SESSION['erro-login'] ?>
+            </div>
+
+        <?php 
+            endif;
+            unset($_SESSION['erro-login']); 
+        ?>
+    <!-- Fim checagem -->
+
+    <!-- Checa se há mensagem de sucesso a serem exibidas e em seguidas ja exclui elas da sessão -->
+        <?php 
+            if(isset($_SESSION['msg-sucesso'])): 
+        ?>
+
+            <div class="alert alert-success" role="alert" style="margin: 30px; text-align: center;">
+                <?php echo $_SESSION['msg-sucesso'] ?>
+            </div>
+
+        <?php 
+            endif;
+            unset($_SESSION['msg-sucesso']); 
+        ?>
+    <!-- Fim checagem -->
+
         <div class="banner">
             <img src="./src/img/banner.png" alt="Facilite ainda hoje a forma como gerencia seu dinheiro!">
         </div>
