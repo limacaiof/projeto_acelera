@@ -32,8 +32,8 @@
         //setando atributos do usuario
         $usuario = new Usuario();
         $usuario->nome = $_POST['nome'];
-        $usuario->senha = $_POST['email'];
-        $usuario->email = $_POST['senha'];
+        $usuario->senha = $_POST['senha'];
+        $usuario->email = $_POST['email'];
 
         // $_SESSION['usuario'] = serialize($usuario);
 
