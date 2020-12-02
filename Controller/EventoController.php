@@ -13,7 +13,7 @@ class EventoController
 
         try {
 
-            $sql = "INSERT INTO eventos(nome_evento, data_evento, data_cadastro, valor_evento, descricao, email_usuario) VALUES (:nome, :data_evento, :senha, :data_evento, data_cadastro, :valor_evento, :descricao, :email_usuario)";
+            $sql = "INSERT INTO eventos(nome_evento, data_evento, data_cadastro, valor_evento, descricao, email_usuario) VALUES (:nome, :data_evento, :data_cadastro, :valor_evento, :descricao, :email_usuario)";
             $statement = $pdo->prepare($sql);
             $statement->execute(array(
                 ':nome' => $evento->nome_evento,
