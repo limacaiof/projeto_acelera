@@ -1,7 +1,7 @@
 <?php
 
-include('../Model/Evento.php');
-include('../Database/DatabaseConnection.php');
+include('./Model/Evento.php');
+include('./Database/DatabaseConnection.php');
 
 class EventoController
 {
@@ -12,6 +12,11 @@ class EventoController
         $pdo = Database::conexao();
 
         try {
+
+            // transformando string do valor em double pra armazenar no banco
+            $valor_convertido = str_replace(',', '.', $evento->valor_evento);
+            $valor_convertido = doubleval($valor_convertido);
+            $evento->valor_evento = $valor_convertido;
 
             $sql = "INSERT INTO eventos(nome_evento, data_evento, data_cadastro, valor_evento, descricao, email_usuario) VALUES (:nome, :data_evento, :data_cadastro, :valor_evento, :descricao, :email_usuario)";
             $statement = $pdo->prepare($sql);
@@ -42,7 +47,7 @@ class EventoController
 
             try {
 
-                $sql = "SELECT * FROM eventos WHERE email_usuario= $email_user ORDER BY id";
+                $sql = "SELECT * FROM eventos WHERE email_usuario= '".$email_user."' ORDER BY id_evento";
                 $statement = $pdo->query($sql);
 
                 while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
@@ -84,8 +89,11 @@ class EventoController
                     ':id' => $id_evento
                 ));
 
+                return true;
+
             } catch (PDOException $th) {
                 $th->getMessage();
+                return false;
 
             } finally {
                 $pdo = null;
@@ -99,7 +107,7 @@ class EventoController
 
         try {
 
-            $sql = "SELECT count(*) from eventos WHERE email_usuario = $email_user";
+            $sql = "SELECT count(*) from eventos WHERE email_usuario = '" .$email_user."'";
 
             $quantidade = $pdo->query($sql)->fetchColumn();
 
