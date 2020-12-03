@@ -1,0 +1,15 @@
+.titlePageContent{
+    padding: 30px 0px;
+}
+*{
+    font-family: Squada One;
+    color:#342929;
+}
+.tableGraphicContent{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.tableContent{
+    
+}
