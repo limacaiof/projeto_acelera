@@ -85,7 +85,7 @@
 .spend-graphic{
     width: 100%;
     height: auto;
-    /* background-color: #EB4242; */
+    /* background-color: #00d150; */
     margin: 100px auto;
 
 }
@@ -95,9 +95,7 @@
     display: flex;
     justify-content: center;
     margin: 5% auto;
-    height: 100%;
-    /*background-color: #00C2FF;*/
-}
+    height: 100%;}
 
 .title-detais{
     display: flex;
@@ -115,6 +113,8 @@
 }
 #myChart{
     max-height: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 5px rgb(175, 175, 175);
 }
 .form-group-flex-my{
     display: flex;

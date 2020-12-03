@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="../src/css/planejarEventos.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
     <link rel="stylesheet" href="../src/css/geral.css">
-
-    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
     <script src="../src/js/charts.js"></script>
 
     
@@ -47,40 +45,77 @@
             <H1>Meus Eventos</H1>
         </div>
         <div class="tableGraphicContent">
-            <div class="tableContent">
-            <table class="table tabela font2">
-                <thead>
-                    <tr>
-                        <th>Nº</th>
-                        <th>Despesas</th>
-                        <th>Valor</th>
-                        <th>Data Vencimento</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Default</td>
-                        <td>Defaultson</td>
-                        <td>def@somemail.com</td>
-                    </tr>
-                    <tr class="">
-                        <td>2</td>
-                        <td>Primary</td>
-                        <td>Joe</td>
-                        <td>joe@example.com</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="tableContent cardsContent">
+                <table class="table tabela font2">
+                    <thead>
+                        <tr>
+                            <th>Nº</th>
+                            <th>Despesas</th>
+                            <th>Valor</th>
+                            <th>Data Vencimento</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Default</td>
+                            <td>Defaultson</td>
+                            <td>def@somemail.com</td>
+                            <td><button class="tbl-btn2" type="button">Deletar</button></td>   
+                        </tr>
+                        <tr class="">
+                            <td>2</td>
+                            <td>Joe</td>
+                            <td>Defaultson</td>
+                            <td>joe@example.com</td>
+                            <td><button class="tbl-btn2" type="button">Deletar</button></td>   
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="graphicContent">
+            <div class="graphicContent cardsContent">
                 <h1>Custos Mensais</h1>
                 <div id="grafico">
-                    <canvas id="myChart" max-width="100%" max-height="100%"></canvas>
+                    <canvas id="myChart"></canvas>
                 </div>
             </div>
         </div>
+        <hr class="line">
+    </section>
+    <section class="dicas container">
+        <p>A ideia é transformar momentos especiais em algo prazeroso e seguro, cuidando minuciosamente de tudo, para que seja de acordo com o que você imaginou. Nosso foco é ver, de fato, a felicidade estampada nos olhos de nossos clientes com a realização de seu objetivo.</p>
+    </section>
+    <section class="container create">
+        <hr class="line">
+        <h1>Criar Evento</h1>
+        <div class="flex">
+            <div class="form-event">
+                <form class="formEvent" action="" method="POST">
+                    <div class="form-group">
+                        <label class="col-form-label" for="name">Nome:</label>
+                        <input id="name" type="text">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Acontecerá em:</label>
+                        <input id="date" type="date">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Custará:</label>
+                        <input id="price" type="text">
+                    </div>
+                    <div class="form-group descr">
+                        <label for="deescricao">Descricão:</label>
+                        <input id="deescricao" type="text">
+                    </div>
+                </form>
+            </div>
+            <div class="div-btn-event">
+                <button type="button" class='btn-event'>Criar</button>
+            </div>
+        </div>
+        
+
     </section>
     <!-- Footer -->
     <footer class="footer-my">
@@ -90,6 +125,5 @@
     </footer>
 
 </body>
-    <script type="text/javascript" src="../src/js/notication.js"></script>
     <script type="text/javascript" src="../src/js/depesas.js"></script>
 </html>

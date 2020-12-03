@@ -41,11 +41,8 @@
 <body>
     <?php  
         $tipo = '';
-        // echo "<script>alert('AFFF ".$_POST['tipo']."')</script>";
-        
         if(isset($_POST['tipo'])){
             $tipo = $_POST['tipo'];
-            // echo "<script>alert('AFFF ".$_POST['tipo']."')</script>";
         }   
     ?>
     <input id="tipo" type="hidden" value=<?php echo "$tipo";?>>

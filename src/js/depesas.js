@@ -1,9 +1,4 @@
 
-const buttonDespesas = document.getElementsByClassName("btn-my-despesas")[0];
-buttonDespesas.addEventListener("click", () =>{
-    drawBasic();
-})
-
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',

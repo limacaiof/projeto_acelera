@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../src/css/fonts.css">
     <link rel="stylesheet" href="../src/css/geral.css">
     <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
-    <script src="../src/js/charts.js"></script>
+    
 
     
 </head>
@@ -44,7 +44,7 @@
                     
                     <div>
                         <label for="message-text" class="col-form-label font3">Data:</label>
-                        <input type="text" class="form-control font3" id="recipient-name">
+                        <input type="date" class="form-control font3" id="recipient-name">
                     </div>
                 </div>
                 <div class="form-group">
@@ -194,8 +194,7 @@
     <section class="spend-graphic container">
         <h1>Gráficos de Gastos</h1>
         <div id="grafico">
-            <canvas id="myChart" max-width="100%" max-height="100%"></canvas>
-           
+            <canvas id="myChart" max-width="100%" height="100%"></canvas>
         </div>
     </section>
     
@@ -207,6 +206,7 @@
     </footer>
 
 </body>
+<script src="../src/js/charts.js"></script>
 <script type="text/javascript" src="../src/js/notication.js"></script>
 <script type="text/javascript" src="../src/js/depesas.js"></script>
 </html>

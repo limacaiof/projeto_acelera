@@ -8,8 +8,80 @@
 .tableGraphicContent{
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
+    margin: 0px auto;
+    height: auto;
 }
 .tableContent{
-    
+    margin-top: 40px;
+}
+.graphicContent h1{
+    font-size: 18px;
+    margin: 0px 0px;
+    padding: 0px;
+}
+.cardsContent{
+    width: 45%;
+    height: 100%;
+    text-align: center;
+}
+.grafico canvas{
+    width: 100%;
+    height: 100%;
+}
+.line{
+    width: 100%;
+    border: 1px solid #342929;
+    margin: 50px auto;
+}
+
+.dicas{
+    padding: 50px 50px;
+    font-size: 25px;
+    word-wrap: break-word;
+    background-color: #F8F8F8;
+    line-height: .7in;
+    box-shadow: 1px 1px 5px #342929;
+    margin: 50px auto;
+}
+.create{
+    margin: 50px auto;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.form-event{
+    width: 100%;
+    background-color: aqua;
+}
+
+
+.formEvent{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 30%;
+    background-color: red;
+}
+.div-btn-event{
+    display: flex;
+    align-items: flex-end;
+    padding: 1% 0px;
+    margin-left: 1%;
+}
+.div-btn-event button{
+    border: 1px solid #05E100;
+    background-color: #5DFE43;
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
 }
