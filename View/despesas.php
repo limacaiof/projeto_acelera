@@ -127,8 +127,28 @@
         </div>
 
         <div class="quanti-despesas" style="font-weight: 400; text-align: center; margin: 50px;">
-            <h2>Você possui um total de <b><?php echo $quantidadeDespesas; ?></b> despesas cadastradas.</h2>
+            <h2>Você possui um total de <b><?php echo $quantidadeDespesas ? $quantidadeDespesas : 0; ?></b> despesas cadastradas.</h2>
         </div>
+
+        <!-- Verifica se possui alerta ou avisos para o usuario -->
+        <?php if(isset($_SESSION['msg'])): ?>
+            <div class="alert alert-info" role="alert" style="margin: 50px; text-align: center; font-size: large;">
+                <?php echo $_SESSION['msg']; ?>
+            </div>
+        <?php 
+            endif; 
+            unset($_SESSION['msg']); // Ja desativa a msg pra ela n ficar para sempre na session
+        ?>
+
+        <?php if(isset($_SESSION['msg-erro'])): ?>
+            <div class="alert alert-danger" role="alert" style="margin: 50px; text-align: center; font-size: large;">
+                <?php echo $_SESSION['msg-erro']; ?>
+            </div>
+        <?php 
+            endif; 
+            unset($_SESSION['msg-erro']); // Ja desativa a msg pra ela n ficar para sempre na session
+        ?>
+        <!-- Fim verificação de msgs -->
         
         <div class="opcoes">
             <button typ="button/submit" id="addDespesas" data-toggle="modal" data-target="#exampleModalLong"class="btn-my-despesas">Adicionar</button>
@@ -171,8 +191,8 @@
                                 <td><?php echo $despesa->situacao; ?></td>
                                 <td><?php echo date("d/m/Y", strtotime($despesa->data_cadastro)); ?></td>
                                 <td>
-                                    <button class="tbl-btn1" type="button">Editar</button>    
-                                    <button class="tbl-btn2" type="button">Deletar</button>    
+                                    <a class="tbl-btn1" type="button">Editar</a>    
+                                    <?php  echo '<a class="tbl-btn2" type="button" href="../Controller/DespesaPageController.php?acao=apagar&id='.$despesa->id_despesa.'">Deletar</a>';?>    
                                 </td>
                             </tr>
 
