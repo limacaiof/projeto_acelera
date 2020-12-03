@@ -1,7 +1,7 @@
 <?php
 
-include('./Model/Despesa.php');
-include('./Database/DatabaseConnection.php');
+include('../Model/Despesa.php');
+include('../Database/DatabaseConnection.php');
 
 class DespesaController {
 
@@ -16,11 +16,10 @@ class DespesaController {
             $valor_convertido = doubleval($valor_convertido);
             $despesa->valor_despesa = $valor_convertido;
 
-            $sql = "INSERT INTO despesas (nome_despesa, descricao_despesa, data_cadastro, data_limite, forma_pagamento, valor_despesa, situacao, email_usuario) VALUES (:nome, :descricao, :data_cadastro, :data_limite, :forma_pagamento, :valor_despesa, :situacao, :email_usuario)";
+            $sql = "INSERT INTO despesas (nome_despesa, data_cadastro, data_limite, forma_pagamento, valor_despesa, situacao, email_usuario) VALUES (:nome, :data_cadastro, :data_limite, :forma_pagamento, :valor_despesa, :situacao, :email_usuario)";
             $statement = $pdo->prepare($sql);
             $statement->execute(array(
                 ':nome' => $despesa->nome_despesa,
-                ':descricao' => $despesa->descricao_despesa,
                 ':data_cadastro' => $despesa->data_cadastro,
                 ':data_limite' => $despesa->data_limite,
                 ':forma_pagamento' => $despesa->forma_pagamento,
@@ -55,7 +54,6 @@ class DespesaController {
                     $despesa = new Despesa();
                     $despesa->id_despesa= $row['id_despesa'];
                     $despesa->nome_despesa= $row['nome_despesa'];
-                    $despesa->descricao_despesa = $row['descricao_despesa'];
                     $despesa->data_cadastro = $row['data_cadastro'];
                     $despesa->data_limite = $row['data_limite'];
                     $despesa->forma_pagamento = $row['forma_pagamento'];
@@ -95,7 +93,6 @@ class DespesaController {
                     $despesa = new Despesa();
                     $despesa->id_despesa= $row['id_despesa'];
                     $despesa->nome_despesa= $row['nome_despesa'];
-                    $despesa->descricao_despesa = $row['descricao_despesa'];
                     $despesa->data_cadastro = $row['data_cadastro'];
                     $despesa->data_limite = $row['data_limite'];
                     $despesa->forma_pagamento = $row['forma_pagamento'];
@@ -159,6 +156,29 @@ class DespesaController {
                 $pdo = null;
             }
     
+    }
+
+    public function listarQuantDespesasCadastradas($email_user) {
+
+        $pdo = Database::conexao();
+
+        try {
+
+            $sql = "SELECT count(*) from despesas WHERE email_usuario = '" .$email_user."'";
+
+            $quantidade = $pdo->query($sql)->fetchColumn();
+
+            if($quantidade) {
+                return $quantidade;
+            } else {
+                return null;
+            }
+        } catch (\Throwable $th) {
+            $th->getMessage(); 
+
+        } finally {
+            $pdo = null;
+        }
     }
 }
 
