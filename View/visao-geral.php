@@ -9,7 +9,7 @@
     <?php
         require './componentes/bootstrap4-5-2.php';
     ?>
-    
+    <link rel="stylesheet" href="../src/css/geral.css">
     <link rel="stylesheet" href="../src/css/visaoGeral.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
 </head>

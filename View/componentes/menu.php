@@ -7,30 +7,26 @@
         </li>
         <div class="nav-item quebrarFlex">
             <li class="nav-item right-my">
-                <a class="nav-link font " href="#">
-                    <?php
-                        require '../src/svg/people-outline.php';
-                    ?>
-                </a>
-            </li>
-            <li class="nav-item right-my">
-                <a class="nav-link font " href="#">
-                    <?php
-                        require '../src/svg/options-outline.php';
-                    ?>
-                </a>
-            </li>
-            <li class="nav-item right-my">
                 <a class="nav-link font " data-toggle="modal" data-target="#exampleModal" href="#">
                     <?php
                         require '../src/svg/notifications-outline.php';
                     ?>
                 </a>
             </li>
+            <li class="nav-item right-my dropdown">
+                <a class="nav-link font" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?php
+                        require '../src/svg/people-outline.php';
+                    ?>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Alterar Conta</a>
+                    <a class="dropdown-item" href="#">Receita/Ganhos</a>
+                    <a class="dropdown-item" href="/acelera/">Sair</a>
+                </div>
+            </li>
         </div>
     </ul>
-  
-    
 
 
 </nav>

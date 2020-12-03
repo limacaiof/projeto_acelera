@@ -16,24 +16,12 @@
             var mLogin = document.getElementById("log");
             var mCadastrar = document.getElementById("cad");
                 if(tipoAcesso ===  "Logar"){
-                    // var one = document.getElementById("all-one");
-                    // var two = document.getElementById("all-two");
                     mLogin.style.display = "block";
                     mCadastrar.style.display = "none";
                 } 
                 else if(tipoAcesso === "cadastrar"){
-                    // var one = document.getElementById("all-one");
-                    // var two = document.getElementById("all-two");
-                    // one.style.display = "block";
-                    // mLogin.style.width = "100px";
-                    // mLogin.style.height = "100px";
-                    // mLogin.style.borderRadius = "100px";
-                    // mLogin.style.transition = ".5s";
                     mLogin.style.display = "none";
                     mCadastrar.style.display = "block";
-                    // two.style.display = "block";
-                    // mCadastrar.style.transitionDelay = "2s";
-                    // two.style.transitionDelay = "2s";
                 }
                 else{
                     var tipo = document.getElementById("tipo").value;
@@ -66,7 +54,7 @@
             <div id="all-one">
                 <h1>Logar</h1>
                 <hr>
-                <form class="formLogin" action="Controller/" method="POST">
+                <form class="formLogin" action="../Controller/LoginController.php?acao=login" method="POST">
                     <div class="input">
                         <input class="camp" type="emailw" name="email" id="emailId" placeholder="email" required>
                         <span class="error "></span>
@@ -93,20 +81,22 @@
                     <div class="banner col-sm-5">
                         <h1>Seja Bem Vindo ! ! !</h1>
                         <div class="logo">
-                            <img src="" alt="">
+                            <img src="logotipo" alt="">
                         </div>
                     </div>
                     <div class="account col-sm-7">
                         <h1>Criar Conta</h1>
                         <hr>
-                        <input class="camp" type="text" name="nome" id="nomeIdC" placeholder="nome">
-                        <input class="camp" type="email" name="email" id="emailIdC" placeholder="email">
-                        <input class="camp" type="password" name="senha" id="senhaIdC" placeholder="senha">
-                        <button type="submit" class="btn btn-enviar">Entrar</button>
-                        <div class="footer-modal">
-                            <h2 class="semconta">Ainda não tem conta?</h2>
-                            <button class="btn-cad" type="button" onclick='trocarOpcoes("Logar")'>Logar-se</button>
-                        </div>
+                        <form action="../Controller/LoginController.php?acao=cadastrar" method="post">
+                            <input class="camp" type="text" name="nome" id="nomeIdC" placeholder="nome">
+                            <input class="camp" type="text" name="email" id="emailIdC" placeholder="email">
+                            <input class="camp" type="password" name="senha" id="senhaIdC" placeholder="senha">
+                            <button type="submit" class="btn btn-enviar">Entrar</button>
+                            <div class="footer-modal">
+                                <h2 class="semconta">Ainda não tem conta?</h2>
+                                <button class="btn-cad" type="button" onclick='trocarOpcoes("Logar")'>Logar-se</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
