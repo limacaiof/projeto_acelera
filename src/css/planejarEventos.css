@@ -61,6 +61,10 @@
 
 .formEvent{
     display: flex;
+    flex-direction: column;
+}
+.organize{
+    display: flex;
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
@@ -72,10 +76,13 @@
     flex: 0 1 30%;
     background-color: red;
 }
+.form-group input:focus{
+    outline: none;
+}
 .div-btn-event{
     display: flex;
     align-items: flex-end;
-    padding: 1% 0px;
+    padding: 1% 2%;
     margin-left: 1%;
 }
 .div-btn-event button{

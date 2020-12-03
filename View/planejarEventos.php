@@ -92,22 +92,25 @@
         <div class="flex">
             <div class="form-event">
                 <form class="formEvent" action="" method="POST">
-                    <div class="form-group">
-                        <label class="col-form-label" for="name">Nome:</label>
-                        <input id="name" type="text">
-                    </div>
-                    <div class="form-group">
-                        <label for="date">Acontecerá em:</label>
-                        <input id="date" type="date">
-                    </div>
-                    <div class="form-group">
-                        <label for="price">Custará:</label>
-                        <input id="price" type="text">
+                    <div class="organize">
+                        <div class="form-group">
+                            <label class="col-form-label" for="name">Nome:</label>
+                            <input class="input" id="name" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Acontecerá em:</label>
+                            <input id="date" type="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Custará:</label>
+                            <input id="price" type="text">
+                        </div>
                     </div>
                     <div class="form-group descr">
                         <label for="deescricao">Descricão:</label>
                         <input id="deescricao" type="text">
                     </div>
+                    
                 </form>
             </div>
             <div class="div-btn-event">
