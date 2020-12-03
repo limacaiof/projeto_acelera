@@ -1,7 +1,7 @@
 <?php 
 
-    include('./Model/Usuario.php');
-    include('./Database/DatabaseConnection.php');
+    include('../Model/Usuario.php');
+    include('../Database/DatabaseConnection.php');
 
     class UsuarioController{
 
