@@ -7,15 +7,26 @@
     <title>Despesas</title>
     <!-- COMPONENTE MENU  KKK  -->
     <?php
+        include('../Model/Usuario.php');
+        include('../Controller/DespesaController.php');
         require './componentes/bootstrap4-5-2.php';
+        session_start();
+
+        $usuario = new Usuario();
+        $usuario = unserialize($_SESSION['usuario']);
+
+        //Ja selecionar todas despesas do usuario
+        $controller = new DespesaController();
+        $despesas[] = new Despesa();
+        $despesas = $controller->listarTodas($usuario->email);
+
+        $quantidadeDespesas = $controller->listarQuantDespesasCadastradas($usuario->email);
     ?>
    
     <link rel="stylesheet" href="../src/css/despesas.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
     <link rel="stylesheet" href="../src/css/geral.css">
     <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
-    
-
     
 </head>
 
@@ -103,15 +114,20 @@
             <h1>Minhas Despesas</h1>
             <div class="help-expenses">
                 <p>Despesas são os gastos básicos que
-                    normalment pagamos todo o mês, ou seja, 
-                        são recursos necessario para você. 
+                    normalmente pagamos todo o mês, ou seja, 
+                        são recursos necessarios para você. 
                 </p>
                 <icon> 
                     <?php
                         require '../src/svg/alert-circle-outline.php';
                     ?>
                 </icon>
-            </div> 
+            </div>
+    
+        </div>
+
+        <div class="quanti-despesas" style="font-weight: 400; text-align: center; margin: 50px;">
+            <h2>Você possui um total de <b><?php echo $quantidadeDespesas; ?></b> despesas cadastradas.</h2>
         </div>
         
         <div class="opcoes">
@@ -121,72 +137,49 @@
                 <button typ="button/submit" class="btn-form-my">Buscar</button>
             </form>
          </div>
-        <table class="table tabela font2">
-            <!-- table-warning table-info table-danger-->
-            <thead>
-                <tr>
-                    <th>Nº</th>
-                    <th>Despesas</th>
-                    <th>Valor</th>
-                    <th>Data Vencimento</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Default</td>
-                    <td>Defaultson</td>
-                    <td>def@somemail.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
 
-                </tr>
-                <tr class="">
-                    <td>2</td>
+         <!-- Primeiro verificar se o usuario tem despesas, se nao tiver, colocar um aviso na tela -->
+         <table class="table tabela font2">
+             <!-- table-warning table-info table-danger-->
+             <thead>
+                 <tr>
+                     <th>Despesa</th>
+                     <th>Valor (R$)</th>
+                     <th>Data Vencimento</th>
+                     <th>Forma de pagamento</th>
+                     <th>Situação</th>
+                     <th>Data Cadastrada</th>
+                     <th>Ações</th>
+                 </tr>
+             </thead>
+            <?php if($despesas == null): ?>
+            
+                <div class="alert alert-info" role="alert" style="text-align: center; margin: 50px;">
+                    Parece que você não possui despesas cadastradas, sinta-se à vontade para cadastrar novas despesas quando quiser!
+                </div>
 
-                    <td>Primary</td>
-                    <td>Joe</td>
-                    <td>joe@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>3</td>
-                    <td>Success</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>4</td>
-                    <td>Danger</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                <tr class="">
-                    <td>5</td>
-                    <td>Info</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                    <td>
-                        <button class="tbl-btn1" type="button">Editar</button>    
-                        <button class="tbl-btn2" type="button">Deletar</button>    
-                    </td>
-                </tr>
-                
-            </tbody>
+            <?php else:?>
+                <tbody>
+                    <?php foreach($despesas as $despesa):?>
+                        <?php if($despesa->id_despesa != null):?>
+                        <!-- Por padrao a primeira posição do array virá vazia com tudo null, então para evitar uma coluna vazia coloquei esta condição-->
+                            <tr>
+                                <td><?php echo $despesa->nome_despesa; ?></td>
+                                <td><?php echo $despesa->valor_despesa; ?></td>
+                                <td><?php echo date("d/m/Y", strtotime($despesa->data_limite)); ?></td>
+                                <td><?php echo $despesa->forma_pagamento; ?></td>
+                                <td><?php echo $despesa->situacao; ?></td>
+                                <td><?php echo date("d/m/Y", strtotime($despesa->data_cadastro)); ?></td>
+                                <td>
+                                    <button class="tbl-btn1" type="button">Editar</button>    
+                                    <button class="tbl-btn2" type="button">Deletar</button>    
+                                </td>
+                            </tr>
+
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            <?php endif;?>
         </table>
     </div>
     <!-- GRAFICO DE DESPESAS  -->
