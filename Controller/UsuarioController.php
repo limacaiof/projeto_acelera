@@ -1,7 +1,7 @@
 <?php 
 
-    include('../Model/Usuario.php');
-    include('../Database/DatabaseConnection.php');
+    include('./Model/Usuario.php');
+    include('./Database/DatabaseConnection.php');
 
     class UsuarioController{
 
@@ -60,15 +60,18 @@
             $pdo = Database::conexao();
 
             try {
+                $valor_inicial = str_replace(',', '.', $valor_inicial); // troca , por . para seguir as conveções de valor em double
+                $valor_inicial_convertido = doubleval($valor_inicial); 
 
-                $sql = "UPDATE `usuario` SET valor_inicial='" .$valor_inicial. "' WHERE email = '" .$email. "'";
-                $statement = $pdo->query($sql);
-
+                $sql = "UPDATE usuario SET valor_inicio= $valor_inicial_convertido WHERE email = '" .$email. "'";
                 $statement = $pdo->prepare($sql);
                 $statement->execute();
 
+                return true;
+
             } catch (PDOException $th) {
                 $th->getMessage();
+                return false;
             }
         
         }
