@@ -81,17 +81,15 @@
                 </div>
             </div>
         </div>
-        <hr class="line">
+        
     </section>
-    <section class="dicas container">
-        <p>A ideia é transformar momentos especiais em algo prazeroso e seguro, cuidando minuciosamente de tudo, para que seja de acordo com o que você imaginou. Nosso foco é ver, de fato, a felicidade estampada nos olhos de nossos clientes com a realização de seu objetivo.</p>
-    </section>
+    
     <section class="container create">
         <hr class="line">
         <h1>Criar Evento</h1>
         <div class="flex">
             <div class="form-event">
-                <form class="formEvent" action="" method="POST">
+                <form class="formEvent" action="despesas.php" id="formPlanejar" method="POST">
                     <div class="organize">
                         <div class="form-group">
                             <label class="col-form-label" for="name">Nome:</label>
@@ -114,11 +112,14 @@
                 </form>
             </div>
             <div class="div-btn-event">
-                <button type="button" class='btn-event'>Criar</button>
+                <button type="button" class='btn-event' onclick="document.getElementById('formPlanejar').submit()">Criar</button>
             </div>
         </div>
-        
+        <hr class="line">
 
+    </section>
+    <section class="dicas container">
+        <p>A ideia é transformar momentos especiais em algo prazeroso e seguro, cuidando minuciosamente de tudo, para que seja de acordo com o que você imaginou. Nosso foco é ver, de fato, a felicidade estampada nos olhos de nossos clientes com a realização de seu objetivo.</p>
     </section>
     <!-- Footer -->
     <footer class="footer-my">
