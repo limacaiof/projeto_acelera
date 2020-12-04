@@ -26,7 +26,8 @@
     <link rel="stylesheet" href="../src/css/despesas.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
     <link rel="stylesheet" href="../src/css/geral.css">
-    <!--<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../src/js/jquery.maskMoney.min.js"></script>
     
 </head>
 
@@ -42,33 +43,35 @@
           </button>
         </div>
         <div class="modal-body">
-            <form>
+            <form action="../Controller/DespesaPageController.php" method="POST">
                 <div class="form-group">
                   <label for="recipient-name" class="col-form-label font3">Nome:</label>
-                  <input type="text" class="form-control font3" id="recipient-name">
+                  <input type="text" class="form-control font3" id="recipient-name" name="nome">
                 </div>
                 <div class="form-group form-group-flex-my">
                     <div>
-                        <label for="message-text" class="col-form-label font3">Valor:</label>
-                        <input type="text" class="form-control font3" id="recipient-name">
+                        <label for="message-text" class="col-form-label font3">Valor (R$):</label>
+                        <input type="text" class="form-control font3" id="valor" name="valor">
                     </div>
                     
                     <div>
-                        <label for="message-text" class="col-form-label font3">Data:</label>
-                        <input type="date" class="form-control font3" id="recipient-name">
+                        <label for="message-text" class="col-form-label font3">Data limite:</label>
+                        <input type="date" class="form-control font3" id="recipient-name" name="data">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="recipient-name" class="col-form-label font3">Categoria:</label>
-                    <input type="text" class="form-control font3" placeholder="Despesas ou Gastos" id="recipient-name">
+                    <label for="recipient-name" class="col-form-label font3">Situação:</label>
+                    <input type="text" class="form-control font3" id="recipient-name" name="situacao">
                 </div>
                 <div class="form-group">
-                    <label for="recipient-name" class="col-form-label font3">Forma de Pagamento:</label>
-                    <input type="text" class="form-control font3" placeholder="Despesas ou Gastos" id="recipient-name">
+                    <label for="recipient-name" class="col-form-label font3">Forma de pagamento:</label>
+                    <input type="text" class="form-control font3" id="recipient-name" name="fpagamento">
+                    <input type="hidden" value="cadastrar" name="acao">
+                    <?php echo '<input type="hidden" name="email" value="'.$usuario->email.'">' ?>
                 </div>
                 <div class="form-group">
-                    <button type="button" class="btn btn-secondary font3" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary font3">Nova Despesagit</button>
+                    <button type="button" class="btn btn-secondary font3" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary font3">Cadastrar</button>
                 </div>
                 
               </form>
@@ -219,6 +222,12 @@
     </footer>
 
 </body>
+<script>
+    // mascara para valor despesa
+    $(document).ready(function(){
+        $("#valor").maskMoney({prefix:'', allowNegative: false, thousands:'', decimal:',', affixesStay: false});
+    });
+</script>
 <script src="../src/js/charts.js"></script>
 <script type="text/javascript" src="../src/js/notication.js"></script>
 <script type="text/javascript" src="../src/js/depesas.js"></script>
