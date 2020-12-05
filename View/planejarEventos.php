@@ -10,7 +10,6 @@
         include('../Model/Usuario.php');
         include('../Controller/EventoController.php');
         require './componentes/bootstrap4-5-2.php';
-        require './componentes/bootstrap4-5-2.php';
         session_start();
 
         $usuario = new Usuario();
@@ -56,7 +55,7 @@
                 <a class="nav-link font2" href="visao-geral.php">Visão Geral</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font2" href="#">Despesas</a>
+                <a class="nav-link font2" href="despesas.php">Despesas</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link font2 active" href="planejarEventos.php">Planeja Eventos</a>
@@ -72,6 +71,15 @@
         </div>
         <div class="quanti-evento" style="font-weight: 400; text-align: center; margin: 50px;">
             <h2>Você possui um total de <b><?php echo $quantEventos ? $quantEventos : 0; ?></b> eventos cadastrados.</h2>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: large;">
+                    Organizar por:
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-size: large;">
+                    <a class="dropdown-item" href="planejarEventos.php">Ordem de inclusão</a>
+                    <a class="dropdown-item" href="planejarEventos.php?orderBy=data">Eventos mais próximos</a>
+                </div>
+            </div>
         </div>
 
         <!-- Verifica se possui alerta ou avisos para o usuario -->
