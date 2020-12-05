@@ -1,7 +1,7 @@
 <?php
 
-include('./Model/Evento.php');
-include('./Database/DatabaseConnection.php');
+include('../Model/Evento.php');
+include('../Database/DatabaseConnection.php');
 
 class EventoController
 {
@@ -48,6 +48,44 @@ class EventoController
             try {
 
                 $sql = "SELECT * FROM eventos WHERE email_usuario= '".$email_user."' ORDER BY id_evento";
+                $statement = $pdo->query($sql);
+
+                while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+                    $evento = new Evento();
+                    $evento->id_evento= $row['id_evento'];
+                    $evento->nome_evento= $row['nome_evento'];
+                    $evento->data_evento = $row['data_evento'];
+                    $evento->data_cadastro = $row['data_cadastro'];
+                    $evento->valor_evento = $row['valor_evento'];
+                    $evento->descricao = $row['descricao'];
+                    $evento->email_usuario = $row['email_usuario'];
+
+                    array_push($lista, $evento);
+                }
+
+                if(!empty($lista)) { // verifica se a lista está vazia
+                    return $lista;
+                } else {
+                    return null;
+                }
+
+            } catch (PDOException $th) {
+                $th->getMessage();
+
+            } finally {
+                $pdo = null;
+            }
+    }
+
+    public function listarTodosOrderData($email_user) {
+
+        $pdo = Database::conexao();
+        $lista[] = new Evento;
+
+            try {
+
+                $sql = "SELECT * FROM eventos WHERE email_usuario= '".$email_user."' ORDER BY data_evento";
                 $statement = $pdo->query($sql);
 
                 while($row = $statement->fetch(PDO::FETCH_ASSOC)) {

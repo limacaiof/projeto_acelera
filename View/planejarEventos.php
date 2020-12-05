@@ -7,7 +7,32 @@
     <title>Planejar Eventos</title>
     <!-- COMPONENTE MENU  KKK  -->
     <?php
+        include('../Model/Usuario.php');
+        include('../Controller/EventoController.php');
         require './componentes/bootstrap4-5-2.php';
+        require './componentes/bootstrap4-5-2.php';
+        session_start();
+
+        $usuario = new Usuario();
+        $usuario = unserialize($_SESSION['usuario']);
+
+        $controller = new EventoController();
+        $eventos[] = new Evento();
+
+        if(isset($_GET['orderBy'])) {
+            if($_GET['orderBy'] == 'data') {
+                $eventos = $controller->listarTodosOrderData($usuario->email);
+
+            } else {
+                $eventos = $controller->listarTodos($usuario->email);
+            }
+
+        } else {
+            $eventos = $controller->listarTodos($usuario->email);
+        }
+
+        $quantEventos = $controller->listarQuantEventoCadastrados($usuario->email);
+
     ?>
     <link rel="stylesheet" href="../src/css/planejarEventos.css">
     <link rel="stylesheet" href="../src/css/fonts.css">
@@ -33,7 +58,7 @@
                 <a class="nav-link font2" href="#">Despesas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link font2 active" href="#">Planeja Eventos</a>
+                <a class="nav-link font2 active" href="planejarEventos.php">Planeja Eventos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link font2" href="#">Limites</a>
@@ -44,33 +69,70 @@
         <div class="titlePageContent">
             <H1>Meus Eventos</H1>
         </div>
+        <div class="quanti-evento" style="font-weight: 400; text-align: center; margin: 50px;">
+            <h2>Você possui um total de <b><?php echo $quantEventos ? $quantEventos : 0; ?></b> eventos cadastrados.</h2>
+        </div>
+
+        <!-- Verifica se possui alerta ou avisos para o usuario -->
+        <?php if(isset($_SESSION['msg'])): ?>
+            <div class="alert alert-info" role="alert" style="margin: 50px; text-align: center; font-size: large;">
+                <?php echo $_SESSION['msg']; ?>
+            </div>
+        <?php 
+            endif; 
+            unset($_SESSION['msg']); // Ja desativa a msg pra ela n ficar para sempre na session
+        ?>
+
+        <?php if(isset($_SESSION['msg-erro'])): ?>
+            <div class="alert alert-danger" role="alert" style="margin: 50px; text-align: center; font-size: large;">
+                <?php echo $_SESSION['msg-erro']; ?>
+            </div>
+        <?php 
+            endif; 
+            unset($_SESSION['msg-erro']); // Ja desativa a msg pra ela n ficar para sempre na session
+        ?>
+        <!-- Fim verificação de msgs -->
+
         <div class="tableGraphicContent">
             <div class="tableContent cardsContent">
                 <table class="table tabela font2">
                     <thead>
                         <tr>
-                            <th>Nº</th>
-                            <th>Despesas</th>
+                            <th>Evento</th>
                             <th>Valor</th>
-                            <th>Data Vencimento</th>
+                            <th>Descrição:</th>
+                            <th>Data do evento:</th>
+                            <th>Data cadastrada:</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Default</td>
-                            <td>Defaultson</td>
-                            <td>def@somemail.com</td>
-                            <td><button class="tbl-btn2" type="button">Deletar</button></td>   
-                        </tr>
-                        <tr class="">
-                            <td>2</td>
-                            <td>Joe</td>
-                            <td>Defaultson</td>
-                            <td>joe@example.com</td>
-                            <td><button class="tbl-btn2" type="button">Deletar</button></td>   
-                        </tr>
+
+                    <?php if($eventos == null): ?>
+            
+                        <div class="alert alert-info" role="alert" style="text-align: center; margin: 50px;">
+                            Parece que você não possui eventos cadastrados, sinta-se à vontade para cadastrar novos eventos quando quiser!
+                        </div>
+
+                    <?php else:?>
+                        <?php foreach($eventos as $evento):?>
+                            <?php if($evento->id_evento != null):?>
+                            <!-- Por padrao a primeira posição do array virá vazia com tudo null, então para evitar uma coluna vazia coloquei esta condição-->
+                                <tr>
+                                    <td><?php echo $evento->nome_evento; ?></td>
+                                    <td><?php echo $evento->valor_evento; ?></td>
+                                    <td><?php echo $evento->descricao; ?></td>
+                                    <td><?php echo date("d/m/Y", strtotime($evento->data_evento)); ?></td>
+                                    <td><?php echo date("d/m/Y", strtotime($evento->data_cadastro)); ?></td>
+                                    <td>
+                                        <?php  echo '<a class="tbl-btn2" style="color: red;" type="button" href="../Controller/EventoPageController.php?acao=apagar&id='.$evento->id_evento.'">Deletar</a>';?>    
+                                    </td>
+                                </tr>
+
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endif ?>
+
                     </tbody>
                 </table>
             </div>
@@ -89,24 +151,26 @@
         <h1>Criar Evento</h1>
         <div class="flex">
             <div class="form-event">
-                <form class="formEvent" action="despesas.php" id="formPlanejar" method="POST">
+                <form class="formEvent" action="../Controller/EventoPageController.php" id="formPlanejar" method="POST">
                     <div class="organize">
                         <div class="form-group">
                             <label class="col-form-label" for="name">Nome:</label>
-                            <input class="input" id="name" type="text">
+                            <input class="input" id="name" type="text" name="nome">
                         </div>
                         <div class="form-group">
                             <label for="date">Acontecerá em:</label>
-                            <input id="date" type="date">
+                            <input id="date" type="date" name="data">
                         </div>
                         <div class="form-group">
                             <label for="price">Custará:</label>
-                            <input id="price" type="text">
+                            <input id="price" type="text" name="valor">
                         </div>
                     </div>
                     <div class="form-group descr">
                         <label for="deescricao">Descricão:</label>
-                        <input id="deescricao" type="text">
+                        <input id="deescricao" type="text" name="descricao">
+                        <?php echo '<input type="hidden" name="email" value="'.$usuario->email.'">' ?>
+                        <input type="hidden" name="acao" value="cadastrar">
                     </div>
                     
                 </form>
