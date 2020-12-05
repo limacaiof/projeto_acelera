@@ -117,9 +117,9 @@
                     </thead>
                     <tbody>
 
-                    <?php if($eventos == null): ?>
+                    <?php if(count($eventos) == 1): ?>
             
-                        <div class="alert alert-info" role="alert" style="text-align: center; margin: 50px;">
+                        <div class="alert alert-info" role="alert" style="text-align: center; margin: 50px; font-size: larger;">
                             Parece que você não possui eventos cadastrados, sinta-se à vontade para cadastrar novos eventos quando quiser!
                         </div>
 
