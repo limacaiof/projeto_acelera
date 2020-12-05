@@ -1,7 +1,7 @@
 <?php
 
 include('../Model/Despesa.php');
-include('../Database/DatabaseConnection.php');
+include_once('../Database/DatabaseConnection.php');
 
 class DespesaController {
 

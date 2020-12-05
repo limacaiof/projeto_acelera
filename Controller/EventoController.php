@@ -1,7 +1,7 @@
 <?php
 
 include('../Model/Evento.php');
-include('../Database/DatabaseConnection.php');
+include_once('../Database/DatabaseConnection.php');
 
 class EventoController
 {
