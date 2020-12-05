@@ -105,42 +105,6 @@
       </div>
     </div>
   </div>
-
-        <!-- Modal alterar situacao despesa -->
-  <!-- <div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title font4" id="exampleModalLongTitle">Nova Despesa</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <form action="../Controller/DespesaPageController.php" method="POST">
-                <div class="form-group">
-                    <label for="recipient-name" class="col-form-label font3">Situação:</label>
-                    <select name="situacao" class="selectpicker" style=" height: 40px; width: 150px; border: 1px solid #CED4DA; border-radius: 5px; background: transparent;">
-                        <option value="A pagar">A pagar</option>
-                        <option value="Paga">Paga</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <input type="hidden" value="alterarSituacao" name="acao">
-                    <?php echo '<input type="hidden" name="email" value="'.$usuario->email.'">' ?>
-                </div>
-                <div class="form-group">
-                    <button type="button" class="btn btn-secondary font3" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary font3">Cadastrar</button>
-                </div>
-                
-              </form>
-        </div>
-        
-      </div>
-    </div>
-  </div> -->
-  
  
     <!-- COMPONENTE MENU  -->
     <?php
