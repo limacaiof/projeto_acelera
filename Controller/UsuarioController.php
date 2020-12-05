@@ -11,12 +11,13 @@
 
             try {
 
-                $sql = "INSERT INTO usuario(nome, email, senha) VALUES (:nome, :email, :senha)";
+                $sql = "INSERT INTO usuario(nome, email, senha, valor_inicio) VALUES (:nome, :email, :senha, :valor)";
                 $statement = $pdo->prepare($sql);
                 $statement->execute(array (
                     ':nome' => $user->nome,
                     ':email' => $user->email,
-                    ':senha' => $user->senha
+                    ':senha' => $user->senha,
+                    ':valor' => 0
                 ));
 
                 return true;

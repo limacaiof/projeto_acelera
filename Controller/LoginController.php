@@ -53,6 +53,32 @@
             exit();
         }
 
+    } elseif ($acao == 'logoff') {
+        unset($_SESSION['usuario']);
+        $_SESSION['msg-sucesso'] = "Logoff efetuado com sucesso";
+        header("Location: http://localhost/projeto_acelera/index.php");
+        exit();
+    
+    } elseif($acao = 'infovalor') {
+        $valor_inicio = $_POST['valor'];
+        $usuario = new Usuario();
+        $usuario = unserialize($_SESSION['usuario']);
+        $resultado = $controller ->alterarValorInicial($valor_inicio, $usuario->email);
+        if($resultado) {
+            $usuario = $controller->validarLogin($usuario->email, $usuario->senha); //atualizar dados novos dos usuarios
+            unset($_SESSION['usuario']); //mata o usuario antigo e atualiza para um novo com o valor inicial inserido e na sessao
+            $_SESSION['usuario'] = serialize($usuario);
+            $_SESSION['msg'] = "Valor inicial informado com sucesso!";
+            header("Location: http://localhost/projeto_acelera/View/visao-geral.php");
+            exit();
+
+        } else {
+            
+            $_SESSION['msg-erro'] = "Ops, parece que houve um problema durante a operação, tente novamente";
+            header("Location: http://localhost/projeto_acelera/View/visao-geral.php");
+            exit();
+        }
+
     }
 
 ?>
