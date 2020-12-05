@@ -85,7 +85,85 @@ class DespesaController {
 
             try {
 
-                $sql = "SELECT * FROM despesas WHERE email_usuario= '".$email_user."' and situacao = 'A pagar' ORDER BY data_limite asc";
+                $sql = "SELECT * FROM despesas WHERE email_usuario= '".$email_user."' ORDER BY data_limite asc";
+                $statement = $pdo->query($sql);
+
+                while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+                    $despesa = new Despesa();
+                    $despesa->id_despesa= $row['id_despesa'];
+                    $despesa->nome_despesa= $row['nome_despesa'];
+                    $despesa->data_cadastro = $row['data_cadastro'];
+                    $despesa->data_limite = $row['data_limite'];
+                    $despesa->forma_pagamento = $row['forma_pagamento'];
+                    $despesa->valor_despesa = $row['valor_despesa'];
+                    $despesa->situacao = $row['situacao'];
+                    $despesa->email_usuario = $row['email_usuario'];
+
+                    array_push($lista, $despesa);
+                }
+
+                if(!empty($lista)) { // verifica se a lista está vazia
+                    return $lista;
+                } else {
+                    return null;
+                }
+
+            } catch (PDOException $th) {
+                $th->getMessage();
+
+            } finally {
+                $pdo = null;
+            }
+    }
+
+    public function listarTodasOrderNaoPagas($email_user) {
+
+        $pdo = Database::conexao();
+        $lista[] = new Despesa;
+
+            try {
+
+                $sql = "SELECT * FROM despesas WHERE email_usuario= '".$email_user."' ORDER BY situacao= 'Paga'";
+                $statement = $pdo->query($sql);
+
+                while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+
+                    $despesa = new Despesa();
+                    $despesa->id_despesa= $row['id_despesa'];
+                    $despesa->nome_despesa= $row['nome_despesa'];
+                    $despesa->data_cadastro = $row['data_cadastro'];
+                    $despesa->data_limite = $row['data_limite'];
+                    $despesa->forma_pagamento = $row['forma_pagamento'];
+                    $despesa->valor_despesa = $row['valor_despesa'];
+                    $despesa->situacao = $row['situacao'];
+                    $despesa->email_usuario = $row['email_usuario'];
+
+                    array_push($lista, $despesa);
+                }
+
+                if(!empty($lista)) { // verifica se a lista está vazia
+                    return $lista;
+                } else {
+                    return null;
+                }
+
+            } catch (PDOException $th) {
+                $th->getMessage();
+
+            } finally {
+                $pdo = null;
+            }
+    }
+
+    public function listarTodasOrderPagas($email_user) {
+
+        $pdo = Database::conexao();
+        $lista[] = new Despesa;
+
+            try {
+
+                $sql = "SELECT * FROM despesas WHERE email_usuario= '".$email_user."' ORDER BY situacao= 'A pagar'";
                 $statement = $pdo->query($sql);
 
                 while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
