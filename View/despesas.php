@@ -18,7 +18,23 @@
         //Ja selecionar todas despesas do usuario
         $controller = new DespesaController();
         $despesas[] = new Despesa();
-        $despesas = $controller->listarTodas($usuario->email);
+
+        //definir filtro que o usuario escolheu, caso n ter escolhido nenhum, filtra todos por ordem de inclusao
+        if(isset($_GET['orderBy'])) {
+            if($_GET['orderBy'] == 'data') {
+                $despesas = $controller->listarTodasOrderDataLimite($usuario->email);
+
+            } elseif($_GET['orderBy'] == 'npagas') {
+                $despesas = $controller->listarTodasOrderNaoPagas($usuario->email);
+
+            } elseif($_GET['orderBy'] == 'pagas') {
+                $despesas = $controller->listarTodasOrderPagas($usuario->email);
+            }
+
+        } else {
+            $despesas = $controller->listarTodas($usuario->email);
+        }
+
 
         $quantidadeDespesas = $controller->listarQuantDespesasCadastradas($usuario->email);
     ?>
@@ -30,6 +46,7 @@
     <script type="text/javascript" src="../src/js/jquery.maskMoney.min.js"></script>
     
 </head>
+<!-- background-color: #FF0000; -->
 
 <body>
 <!-- Modal Despesas-->
@@ -55,17 +72,26 @@
                     </div>
                     
                     <div>
-                        <label for="message-text" class="col-form-label font3">Data limite:</label>
+                        <label for="message-text" class="col-form-label font3">Data de vencimento:</label>
                         <input type="date" class="form-control font3" id="recipient-name" name="data">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label font3">Situação:</label>
-                    <input type="text" class="form-control font3" id="recipient-name" name="situacao">
+                    <select name="situacao" class="selectpicker" style=" height: 40px; width: 150px; border: 1px solid #CED4DA; border-radius: 5px; background: transparent;">
+                        <option value="A pagar">A pagar</option>
+                        <option value="Paga">Paga</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="recipient-name" class="col-form-label font3">Forma de pagamento:</label>
-                    <input type="text" class="form-control font3" id="recipient-name" name="fpagamento">
+                    <select name="fpagamento" class="selectpicker" style="margin-bottom: 25px; height: 40px; width: 150px; border: 1px solid #CED4DA; border-radius: 5px; background: transparent;">
+                        <option value="Crédito">Crédito</option>
+                        <option value="Boleto">Boleto</option>
+                        <option value="Débito">Débito</option>
+                        <option value="Transferência bancária">Transferência bancária</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                    </select>
                     <input type="hidden" value="cadastrar" name="acao">
                     <?php echo '<input type="hidden" name="email" value="'.$usuario->email.'">' ?>
                 </div>
@@ -155,10 +181,17 @@
         
         <div class="opcoes">
             <button typ="button/submit" id="addDespesas" data-toggle="modal" data-target="#exampleModalLong"class="btn-my-despesas">Adicionar</button>
-            <form action="#" method="post">
-                <input type="text" class="input-form-my" name="search" id="search" placeholder="Procurar">
-                <button typ="button/submit" class="btn-form-my">Buscar</button>
-            </form>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: large;">
+                    Organizar por:
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="font-size: large;">
+                    <a class="dropdown-item" href="despesas.php">Ordem de inclusão</a>
+                    <a class="dropdown-item" href="despesas.php?orderBy=data">Datas de vencimento próximas</a>
+                    <a class="dropdown-item" href="despesas.php?orderBy=npagas">Despesas não pagas primeiro</a>                    
+                    <a class="dropdown-item" href="despesas.php?orderBy=pagas"> Despesas pagas primeiro</a>
+                </div>
+            </div>
          </div>
 
          <!-- Primeiro verificar se o usuario tem despesas, se nao tiver, colocar um aviso na tela -->
