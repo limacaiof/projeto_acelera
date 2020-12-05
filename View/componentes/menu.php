@@ -22,7 +22,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Alterar Conta</a>
                     <a class="dropdown-item" href="#">Receita/Ganhos</a>
-                    <a class="dropdown-item" href="/acelera/">Sair</a>
+                    <a class="dropdown-item" href="../Controller/LoginController.php?acao=logoff">Sair</a>
                 </div>
             </li>
         </div>
