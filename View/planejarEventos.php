@@ -38,7 +38,8 @@
     <link rel="stylesheet" href="../src/css/fonts.css">
     <link rel="stylesheet" href="../src/css/geral.css">
     <script src="../src/js/charts.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../src/js/jquery.maskMoney.min.js"></script>
     
 </head>
 
@@ -154,20 +155,20 @@
                 <form class="formEvent" action="../Controller/EventoPageController.php" id="formPlanejar" method="POST">
                     <div class="organize">
                         <div class="form-group">
-                            <label class="col-form-label" for="name">Nome:</label>
+                            <label style="font-size: larger;" class="col-form-label" for="name">Nome:</label>
                             <input class="input" id="name" type="text" name="nome">
                         </div>
                         <div class="form-group">
-                            <label for="date">Acontecerá em:</label>
-                            <input id="date" type="date" name="data">
+                            <label style="font-size: larger;"for="date">Acontecerá em:</label>
+                            <input  class="input" id="date" type="date" name="data">
                         </div>
                         <div class="form-group">
-                            <label for="price">Custará:</label>
-                            <input id="price" type="text" name="valor">
+                            <label style="font-size: larger;"for="price">Custará:</label>
+                            <input class="input" id="price" type="text" name="valor">
                         </div>
                     </div>
                     <div class="form-group descr">
-                        <label for="deescricao">Descricão:</label>
+                        <label style="font-size: larger;"for="deescricao">Descricão:</label>
                         <input id="deescricao" type="text" name="descricao">
                         <?php echo '<input type="hidden" name="email" value="'.$usuario->email.'">' ?>
                         <input type="hidden" name="acao" value="cadastrar">
@@ -194,4 +195,10 @@
 
 </body>
     <script type="text/javascript" src="../src/js/depesas.js"></script>
+    <script>
+        // mascara para valor despesa
+        $(document).ready(function(){
+            $("#price").maskMoney({prefix:'', allowNegative: false, thousands:'', decimal:',', affixesStay: false});
+        });
+    </script>
 </html>

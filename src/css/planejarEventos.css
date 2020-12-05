@@ -55,7 +55,7 @@
 
 .form-event{
     width: 100%;
-    background-color: aqua;
+    
 }
 
 
@@ -74,8 +74,14 @@
     display: flex;
     flex-direction: column;
     flex: 0 1 30%;
-    background-color: red;
+    
 }
+
+.form-group .input{
+    height: 35px;
+    width: 200px;
+}
+
 .form-group input:focus{
     outline: none;
 }
@@ -86,9 +92,11 @@
     margin-left: 1%;
 }
 .div-btn-event button{
-    border: 1px solid #05E100;
-    background-color: #5DFE43;
+    border: 1px solid #00d1edc2;
+    background-color: #00D1ED;
     width: 100px;
+    font-size: x-large;
+    color: whitesmoke;
     height: 60px;
     border-radius: 10px;
 }
