@@ -7,10 +7,10 @@
         public function __construct()
         {
             $db_host = "localhost";
-            $db_name = ""; // Insira o nome do BD de teste na sua maquina
+            $db_name = "projeto_acelera"; // Insira o nome do BD de teste na sua maquina
             $db_port = '5432'; // Porta padrão do pgsql
             $db_usuario = "postgres"; // Por padrao o Postgresql usa o usuario postgres, caso use um diferente, coloque-o neste campo
-            $db_senha = ""; // senha do usuario postgres da sua maquina
+            $db_senha = "1234"; // senha do usuario postgres da sua maquina
             $db_driver = "pgsql";
 
             try {

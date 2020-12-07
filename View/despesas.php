@@ -48,7 +48,7 @@
 </head>
 
 <body>
-<!-- Modal Despesas-->
+<!-- Modal Adicionar Despesas-->
 <div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -105,7 +105,69 @@
       </div>
     </div>
   </div>
- 
+<!-- MODAL DE EDITAR AS DESPESAS -->
+    <!-- MODAL DE EDITAR AS DESPESAS -->
+    <div class="modal fade bd-example-modal-lg" id="idModalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true">
+        <!-- PARA DIMINUIR O MODAL RETIRA MODAL-LG, PARA DIMINUIR MAIS AINDA ADD O MODAL-SM -->
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title font4" id="exampleModalLongTitle">Editando Despesa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <form action="../Controller/DespesaPageController.php" method="POST">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label font3">Despesas:</label>
+                        <input type="text" class="form-control font3" id="recipient-name" name="nome">
+                    </div>
+                    <div class="form-group form-group-flex-my">
+                        <div>
+                            <label for="message-text" class="col-form-label font3">Valor (R$):</label>
+                            <input type="text" class="form-control font3" id="valor" name="valor">
+                        </div>
+                        
+                        <div>
+                            <label for="message-text" class="col-form-label font3">Data de vencimento:</label>
+                            <input type="date" class="form-control font3" id="recipient-name" name="data">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label font3">Situação:</label>
+                        <select name="situacao" class="selectpicker" style=" height: 40px; width: 150px; border: 1px solid #CED4DA; border-radius: 5px; background: transparent;">
+                            <option value="A pagar">A pagar</option>
+                            <option value="Paga">Paga</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label font3">Forma de pagamento:</label>
+                        <select name="fpagamento" class="selectpicker" style="margin-bottom: 25px; height: 40px; width: 150px; border: 1px solid #CED4DA; border-radius: 5px; background: transparent;">
+                            <option value="Crédito">Crédito</option>
+                            <option value="Boleto">Boleto</option>
+                            <option value="Débito">Débito</option>
+                            <option value="Transferência bancária">Transferência bancária</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                        </select>
+                        <input type="hidden" value="cadastrar" name="acao">
+                        <?php echo '<input type="hidden" name="email" value="'.$usuario->email.'">' ?>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary font3" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary font3">Editar</button>
+                    </div>
+                    
+                </form>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- FIM DO MODAL DE EDITAR AS DESPESAS -->
+<!-- FIM DO MODAL DE EDITAR AS DESPESAS -->
+
     <!-- COMPONENTE MENU  -->
     <?php
         require './componentes/menu.php';
@@ -172,7 +234,7 @@
         <!-- Fim verificação de msgs -->
         
         <div class="opcoes">
-            <button typ="button/submit" id="addDespesas" data-toggle="modal" data-target="#exampleModalLong"class="btn-my-despesas">Adicionar</button>
+            <button typ="button/submit" id="addDespesas" data-toggle="modal" data-target="#exampleModalLong" class="btn-my-despesas">Adicionar</button>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: large;">
                     Organizar por:
@@ -219,7 +281,7 @@
                                 <td><?php echo $despesa->situacao; ?></td>
                                 <td><?php echo date("d/m/Y", strtotime($despesa->data_cadastro)); ?></td>
                                 <td>
-                                    <a class="tbl-btn1" type="button">Editar</a>    
+                                    <a class="tbl-btn1" type="button" data-toggle="modal" data-target="#idModalEditar">Editar</a>    
                                     <?php  echo '<a class="tbl-btn2" type="button" href="../Controller/DespesaPageController.php?acao=apagar&id='.$despesa->id_despesa.'">Deletar</a>';?>    
                                 </td>
                             </tr>
