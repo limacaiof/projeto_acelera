@@ -49,4 +49,21 @@
             header('Location: http://localhost/projeto_acelera/View/despesas.php');
             exit();
         }
+    
+    } elseif($acao == 'editar') {
+        $iddespesa = $_POST['id_despesa'];
+        $situacao = $_POST['situacao'];
+
+        $resultado = $controller->alterarStatusDespesa($situacao, $iddespesa);
+
+        if($resultado) {
+            $_SESSION['msg'] = "Despesa alterada com sucesso!";
+            header('Location: http://localhost/projeto_acelera/View/despesas.php');
+            exit();
+
+        } else {
+            $_SESSION['msg-erro'] = "Ocorreu um erro ao realizar operação, tente novamente!";
+            header('Location: http://localhost/projeto_acelera/View/despesas.php');
+            exit();
+        }
     }
