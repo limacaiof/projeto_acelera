@@ -51,6 +51,50 @@
         </ul>
     </div>
 
+    <?php if(isset($_GET['valor_i'])): ?>
+        <script>
+            $( document ).ready(function() {
+                console.log( "ready!" );
+                jQuery.noConflict(); 
+                $('#idModalEditar').modal('show');
+                
+            });
+        </script>
+    <?php endif ?>
+
+    <div class="modal fade bd-example-modal-lg" id="idModalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"  aria-hidden="true" style="pointer-events: all;">
+        <!-- PARA DIMINUIR O MODAL RETIRA MODAL-LG, PARA DIMINUIR MAIS AINDA ADD O MODAL-SM -->
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title font4" id="exampleModalLongTitle">Editando Despesa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <form action="../Controller/LoginController.php?acao=infovalor" method="POST">
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label font3">Novo valor (R$):</label>
+                        <?php echo '<input type="text" class="form-control font3" id="valor_i" name="valor_i" value="'.(isset($_GET['valor_i']) ? str_replace('.', ',', $_GET['valor_i']) : 0).'">' ?>
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" value="editar" name="acao">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-secondary font3" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary font3">Editar</button>
+                    </div>
+                    
+                </form>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- FIM DO MODAL DE EDITAR AS DESPESAS -->
+
     <!-- Verifica se possui alerta ou avisos para o usuario -->
     <?php if(isset($_SESSION['msg'])): ?>
             <div class="alert alert-info" role="alert" style="margin: 50px; text-align: center; font-size: large;">
@@ -77,7 +121,15 @@
             <i style="font-size: larger;">A mensagens que serão informadas aqui são geradas automaticamente através das informações fornecidas pelo usuário, se achar que o conteúdo de alguma delas não se enquadra com o seu perfil, favor desconsidera-las.<i>
         </div>
 
-        <h3 style="font-style: normal;">Valor inicial informado: <span class="badge badge-secondary"><?php echo $usuario->valor_inicial ?></span></h3>
+        <h3 style="font-style: normal;">Valor inicial informado: 
+            <span class="badge badge-secondary"><?php echo $usuario->valor_inicial ?></span> 
+            <?php echo '<a style="margin: 10px;" title="Editar valor" href="visao-geral.php?valor_i='.$usuario->valor_inicial.'">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5L13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175l-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                            </svg>
+                        </a>' 
+            ?>
+        </h3>
 
         <hr style="margin: 35px;">
 
@@ -120,6 +172,14 @@
                 </div>
             <?php endif ?>
 
+        <?php else: ?>
+
+            <div class="alert alert-primary" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
+                 Bem vindo ao safeMoney <b><?php echo $usuario->nome ?></b>! seu mais novo assistente de controle financeiro. Chega de fazer controles no papel, aqui você gerenciará melhor suas contas, despesas, eventos futuros de sua escolha, enfim, tudo em único lugar só! 
+            </div>
+
+            <?php ?>
+
         <?php endif; ?>
 
 
@@ -129,6 +189,7 @@
     // mascara para valor despesa
     $(document).ready(function(){
         $("#valor").maskMoney({prefix:'', allowNegative: false, thousands:'', decimal:',', affixesStay: false});
+        
     });
 </script>
 

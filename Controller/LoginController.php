@@ -60,7 +60,7 @@
         exit();
     
     } elseif($acao = 'infovalor') {
-        $valor_inicio = $_POST['valor'];
+        $valor_inicio = $_POST['valor_i'];
         $usuario = new Usuario();
         $usuario = unserialize($_SESSION['usuario']);
         $resultado = $controller ->alterarValorInicial($valor_inicio, $usuario->email);
