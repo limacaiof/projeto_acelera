@@ -3,7 +3,10 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <ul class="navbar-nav container">
         <li class="nav-item active">
-            <a class="nav-link font" href="#">Logotipo</a>
+            <a class="nav-link font" href="../index.php" style="display: flex;">
+                <img src="../src/img/logo.png" alt="" title="safeMoney" style="width: 50px; height: 50px;">
+                safeMoney
+            </a>
         </li>
         <div class="nav-item quebrarFlex">
             <li class="nav-item right-my">
