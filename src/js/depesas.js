@@ -1,12 +1,27 @@
 
+var despesasElement = document.querySelectorAll(".despesasTable");
+var valoresElement = document.querySelectorAll(".valorTable");
+var color = document.querySelectorAll(".despesasTable");
+var mesDepesas =  document.querySelectorAll(".dataTable");
+
+var labels = [];
+despesasElement.forEach(element => {
+    labels.push(element.innerHTML).toString;
+});
+
+var valores = [];
+valoresElement.forEach(element => {
+    valores.push(element.innerHTML).toFixed(2);
+});
+alert(valores);
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: labels,
         datasets: [{
             label: 'Mes Maio',
-            data: [12, 19, 3, 5, 2, 3],
+            data: valores,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -23,7 +38,7 @@ var myChart = new Chart(ctx, {
                 'rgba(153, 102, 255, 1)',
                 'rgba(255, 159, 64, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 2  
         }]
     },
     options: {
@@ -36,3 +51,13 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+
+
+
+
+
+
+
+
+

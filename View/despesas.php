@@ -265,9 +265,9 @@
                         <?php if($despesa->id_despesa != null):?>
                         <!-- Por padrao a primeira posição do array virá vazia com tudo null, então para evitar uma coluna vazia coloquei esta condição-->
                             <tr>
-                                <td><?php echo $despesa->nome_despesa; ?></td>
-                                <td><?php echo $despesa->valor_despesa; ?></td>
-                                <td><?php echo date("d/m/Y", strtotime($despesa->data_limite)); ?></td>
+                                <td class="despesasTable"><?php echo $despesa->nome_despesa; ?></td>
+                                <td class="valorTable"><?php echo $despesa->valor_despesa; ?></td>
+                                <td class="dateTable"><?php echo date("d/m/Y", strtotime($despesa->data_limite)); ?></td>
                                 <td><?php echo $despesa->forma_pagamento; ?></td>
                                 <td><?php echo $despesa->situacao; ?></td>
                                 <td><?php echo date("d/m/Y", strtotime($despesa->data_cadastro)); ?></td>
@@ -307,6 +307,5 @@
     });
 </script>
 <script src="../src/js/charts.js"></script>
-<script type="text/javascript" src="../src/js/notication.js"></script>
 <script type="text/javascript" src="../src/js/depesas.js"></script>
 </html>
