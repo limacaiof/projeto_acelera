@@ -60,9 +60,6 @@
             <li class="nav-item">
                 <a class="nav-link font2 active" href="planejarEventos.php">Planeja Eventos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link font2" href="#">Limites</a>
-            </li>
         </ul>
     </div>
     <section class="container">
@@ -128,10 +125,10 @@
                             <?php if($evento->id_evento != null):?>
                             <!-- Por padrao a primeira posição do array virá vazia com tudo null, então para evitar uma coluna vazia coloquei esta condição-->
                                 <tr>
-                                    <td><?php echo $evento->nome_evento; ?></td>
-                                    <td><?php echo $evento->valor_evento; ?></td>
-                                    <td><?php echo $evento->descricao; ?></td>
-                                    <td><?php echo date("d/m/Y", strtotime($evento->data_evento)); ?></td>
+                                    <td class="eventosTable"><?php echo $evento->nome_evento; ?></td>
+                                    <td class="valorTable"><?php echo $evento->valor_evento; ?></td>
+                                    <td style='text-align: left;'><?php echo $evento->descricao; ?></td>
+                                    <td class="dataTable"><?php echo date("d/m/Y", strtotime($evento->data_evento)); ?></td>
                                     <td><?php echo date("d/m/Y", strtotime($evento->data_cadastro)); ?></td>
                                     <td>
                                         <?php  echo '<a class="tbl-btn2" style="color: red;" type="button" href="../Controller/EventoPageController.php?acao=apagar&id='.$evento->id_evento.'">Deletar</a>';?>    
@@ -146,7 +143,7 @@
                 </table>
             </div>
             <div class="graphicContent cardsContent">
-                <h1>Custos Mensais</h1>
+                <h1>Orçamentos</h1>
                 <div id="grafico">
                     <canvas id="myChart"></canvas>
                 </div>
@@ -202,7 +199,7 @@
     </footer>
 
 </body>
-    <script type="text/javascript" src="../src/js/depesas.js"></script>
+    <script type="text/javascript" src="../src/js/planejarEventos.js"></script>
     <script>
         // mascara para valor despesa
         $(document).ready(function(){

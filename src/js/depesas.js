@@ -20,7 +20,7 @@ var myChart = new Chart(ctx, {
     data: {
         labels: labels,
         datasets: [{
-            label: 'Mes Maio',
+            label: 'Despesas',
             data: valores,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

@@ -176,9 +176,6 @@
             <li class="nav-item">
                 <a class="nav-link font2" href="planejarEventos.php">Planeja Eventos</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link font2" href="#">Gastos</a>
-            </li>
         </ul>
     </div>
     <!-- DICAS BUSCA TABELA DE DESPESAS  -->
