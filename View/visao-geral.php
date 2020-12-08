@@ -27,18 +27,20 @@
         $somaValorDespesas = 0;
         //a cada despesa maior ou igual ao valor inicial do usuario, ele assume q é uma despesa de risco
         $quantDespesaRisco = 0;
-        $despesaMaiorQueValor = null;
+        $valoresDespesaRisco = [];
 
         foreach ($listaPagas as $despesapaga) {
             $somaValorDespesas+= doubleval($despesapaga->valor_despesa);
             if($despesapaga->valor_despesa >= $usuario->valor_inicial) {
 
-                $despesaMaiorQueValor = $despesapaga;
+                array_push($valoresDespesaRisco, $despesapaga->valor_despesa);
                 $quantDespesaRisco++;
             }
         }
 
         $descontoValorInicial = ($usuario->valor_inicial - $somaValorDespesas);
+
+        $valoresDespesaRiscoString = implode(' , ', $valoresDespesaRisco);
 
     ?>
     <link rel="stylesheet" href="../src/css/geral.css">
@@ -139,7 +141,7 @@
             <i style="font-size: larger;">A mensagens que serão informadas aqui são geradas automaticamente através das informações fornecidas pelo usuário, se achar que o conteúdo de alguma delas não se enquadra com o seu perfil, favor desconsidera-las.<i>
         </div>
 
-        <h3 style="font-style: normal;">Valor inicial informado: 
+        <h3 style="font-style: normal;">Valor inicial informado (R$): 
             <span class="badge badge-secondary"><?php echo $usuario->valor_inicial ?></span> 
             <?php echo '<a style="margin: 10px;" title="Editar valor" href="visao-geral.php?valor_i='.$usuario->valor_inicial.'">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -185,19 +187,33 @@
             <?php else: ?>
 
                 <?php if((count($listaPagas) - 1) > 0): ?>
+
                     <div class="alert alert-warning" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
-                        Você possui um total de <b><?php echo (count($listaPagas) - 1); ?></b> despesa(s) não paga(s)
+                        Você possui um total de <b><?php echo (count($listaPagas) - 1); ?></b> despesa(s) não paga(s) que somam um total de R$: <?php echo $usuario->valor_inicial <= $somaValorDespesas ? '<b style="color: red">'.$somaValorDespesas.'</b>, um valor que supera a quantidade que possui.' : '<b>'.$somaValorDespesas.'</b>, um valor que se mantém abaixo da quantidade inicial declarada.' ?>
                     </div>
 
                     <?php if($quantDespesaRisco > 0 && $usuario->valor_inicial != 0):?>
                         <div class="alert alert-danger" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
-                            <b>Cuidado!</b> Você possui <b><?php echo $quantDespesaRisco; ?></b> despesa(s) de risco(s). 
+                            <b>Cuidado!</b> Você possui <b><?php echo $quantDespesaRisco; ?></b> despesa(s) de risco(s) com o valor de: <b><?php echo $valoresDespesaRiscoString ?></b>. 
                         </div>
                         <div class="alert alert-danger" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
-                            As despesas de risco são aquelas que por si só, sem somar com outras despesas, atingem um custo maior que o valor inicial informado. Por isso é tomar medidas mais cuidadosas, como evitar assumir novos custos, se possível parcelar a despesa, informar o mais atual valor que possui, etc. 
+                            As despesas de risco são aquelas que por si só, sem somar com outras despesas, atingem um custo maior que o valor inicial informado. Por isso, é necessário tomar algumas medidas, como evitar assumir novos custos; se possível, parcelar a(s) despesa(s), informar um valor monetário mais atual que possui, etc. 
+                        </div>
+                    
+                    <?php else: ?>
+
+                        <div class="alert alert-primary" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
+                            Ótimo! Parece que nenhuma <span style="color: red;">despesa de risco</span> foi encontrada entre suas <?php echo (count($listaPagas) - 1) ?> despesas não pagas, o que significa que você está indo muito bem em controlar seu gastos na prática, continue assim! ;) 
                         </div>
                     
                     <?php endif ?>
+
+                <?php else: ?>
+
+                <div class="alert alert-info" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
+                    Boa! Você possui um total de <b><?php echo $quantidadeDespesa ?></b> despesas e todas estão pagas e/ou em dia, é assim que se faz! Continue assim para se manter longe das dívidas e impecílios que te dêem prejuízo no futuro. 
+                </div>
+
                 <?php endif ?>
                 
             <?php endif ?>
