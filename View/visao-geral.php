@@ -25,10 +25,20 @@
         $listaPagas = $controllerDespesa->listarTodasNaoPagas($usuario->email);
 
         $somaValorDespesas = 0;
+        //a cada despesa maior ou igual ao valor inicial do usuario, ele assume q é uma despesa de risco
+        $quantDespesaRisco = 0;
+        $despesaMaiorQueValor = null;
 
         foreach ($listaPagas as $despesapaga) {
             $somaValorDespesas+= doubleval($despesapaga->valor_despesa);
+            if($despesapaga->valor_despesa >= $usuario->valor_inicial) {
+
+                $despesaMaiorQueValor = $despesapaga;
+                $quantDespesaRisco++;
+            }
         }
+
+        $descontoValorInicial = ($usuario->valor_inicial - $somaValorDespesas);
 
     ?>
     <link rel="stylesheet" href="../src/css/geral.css">
@@ -75,7 +85,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title font4" id="exampleModalLongTitle">Editando Despesa</h5>
+                <h5 class="modal-title font4" id="exampleModalLongTitle">Editando valor inicial</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -171,6 +181,25 @@
                 <div class="alert alert-warning" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
                     Hmm, parece que você tem poucas despesas cadastradas no sistema, talvez tenha se esquecido de alguma.. Vamos lá, tente recordar de alguma despesa que tenha não cadastrado e informe na <a href="despesas.php" style="text-decoration: none;">aba de despesas</a>, ficará bem mais simples de se organizar ;)
                 </div>
+            
+            <?php else: ?>
+
+                <?php if((count($listaPagas) - 1) > 0): ?>
+                    <div class="alert alert-warning" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
+                        Você possui um total de <b><?php echo (count($listaPagas) - 1); ?></b> despesa(s) não paga(s)
+                    </div>
+
+                    <?php if($quantDespesaRisco > 0 && $usuario->valor_inicial != 0):?>
+                        <div class="alert alert-danger" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
+                            <b>Cuidado!</b> Você possui <b><?php echo $quantDespesaRisco; ?></b> despesa(s) de risco(s). 
+                        </div>
+                        <div class="alert alert-danger" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
+                            As despesas de risco são aquelas que por si só, sem somar com outras despesas, atingem um custo maior que o valor inicial informado. Por isso é tomar medidas mais cuidadosas, como evitar assumir novos custos, se possível parcelar a despesa, informar o mais atual valor que possui, etc. 
+                        </div>
+                    
+                    <?php endif ?>
+                <?php endif ?>
+                
             <?php endif ?>
 
             <!-- alerta sobre importancia de planejar eventos futuros caso ele n tenha cadastrado muitos eventos -->
@@ -183,7 +212,7 @@
         <?php else: ?>
             <!-- Mostra quando usuario n tem despesa e nem eventos o que da entender que ele é um usuario novo -->
             <div class="alert alert-primary" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
-                 Bem vindo ao <span style="color: green;">safe</span><span style="color: #f9b100;">Money</span> <b><?php echo $usuario->nome ?></b>! seu mais novo assistente de controle financeiro. Chega de fazer controles no papel, aqui você gerenciará melhor suas contas, despesas, eventos futuros de sua escolha, enfim, tudo em único lugar só através de seu computador ou smartphone! 
+                Bem vindo ao <span style="color: green;">safe</span><span style="color: #f9b100;">Money</span> <b><?php echo $usuario->nome ?></b>! seu mais novo assistente de controle financeiro. Chega de fazer controles no papel, aqui você gerenciará melhor suas contas, despesas, eventos futuros de sua escolha, enfim, tudo em único lugar só, através de seu computador ou smartphone!<p>Comece já incluindo suas despesas e eventos aqui no site e controle-os com avisos personalizados aqui em Visão Geral ou com os graficos disponíveis em suas respectivas páginas ;) </p>
             </div>
 
             <?php ?>
