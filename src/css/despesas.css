@@ -5,21 +5,43 @@
     justify-content: space-between;
     margin: 30px 0px;
 }
+.title-detais{
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+.title-detais h1{
+    flex: 0 1 40%;
+    /* background-color: #009DCE; */
+    font-size: 35px;
+}
 .help-expenses{
-    width: 40%;
-    padding: 15px 2%;
+    flex: 0 1 50%;
+    width: auto;
     background-color: #F3FFFD;
     display: flex;
-    justify-content: flex-start;
-    border: 3px solid #09F0C7;
+    justify-content: space-between;
+    border: 2px solid #09F0C7;
     border-radius: 20px;
+    align-items: flex-start;
+    padding: 1%;
+}
+.help-expenses icon{
+    width: auto;
+    display: flex;
+    justify-content: flex-end;
+    /* background-color: #68c8e6; */
+    flex: 0 1 20%;
+
 }
 .help-expenses p{
-    
+    /* background-color: #009DCE; */
     font-family: Squada One;
     font-size: 20px;
     color: #368B90;
-    word-wrap: break-word;
+    padding: 0%;
+    margin: 0;
 }
 
 .opcoes form{
@@ -68,12 +90,14 @@
     border-radius: 5px;
     color: #544444;
     font-family: Squada One;
+    padding: 5px;
     font-size: 17px;
-    width: 30%;
+    width: auto;
 
 }
 .tbl-btn2{
-    width: 30%;
+    padding: 5px;
+    width: auto;
     background-color: #EB4242;
     border: 1px solid #EF2A2A;
     border-radius: 5px;
@@ -97,11 +121,7 @@
     margin: 5% auto;
     height: 100%;}
 
-.title-detais{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 
 .btn-my-despesas{
     width: 20%;

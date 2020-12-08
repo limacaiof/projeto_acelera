@@ -15,25 +15,29 @@
         function trocarOpcoes(tipoAcesso){
             var mLogin = document.getElementById("log");
             var mCadastrar = document.getElementById("cad");
-                if(tipoAcesso ===  "Logar"){
+            // alert(tip);
+            if(document.getElementById("tipo").value == "" || document.getElementById("tipo").value == " " || document.getElementById("tipo").value == false || document.getElementById("tipo").value == undefined){
+                tipoAcesso= "Logar";
+            }
+            if(tipoAcesso ===  "Logar"){
+                mLogin.style.display = "block";
+                mCadastrar.style.display = "none";
+            } 
+            else if(tipoAcesso === "cadastrar"){
+                mLogin.style.display = "none";
+                mCadastrar.style.display = "block";
+            }
+            else{
+                var tipo = document.getElementById("tipo").value;
+                if(tipo ===  "Logar"){
                     mLogin.style.display = "block";
                     mCadastrar.style.display = "none";
                 } 
-                else if(tipoAcesso === "cadastrar"){
+                else if(tipo === "cadastrar"){
                     mLogin.style.display = "none";
                     mCadastrar.style.display = "block";
                 }
-                else{
-                    var tipo = document.getElementById("tipo").value;
-                    if(tipo ===  "Logar"){
-                        mLogin.style.display = "block";
-                        mCadastrar.style.display = "none";
-                    } 
-                    else if(tipo === "cadastrar"){
-                        mLogin.style.display = "none";
-                        mCadastrar.style.display = "block";
-                    }
-                }
+            }
         }
     </script>
 </head>
@@ -103,7 +107,7 @@
 
 <script>
     // Juntamente com o php, utilizar o input hidden para saber qual tipo de operacoes sera usaro logar ou cadastrar
-    trocarOpcoes("asdsd");
+    trocarOpcoes();
 </script>
 </body>
 

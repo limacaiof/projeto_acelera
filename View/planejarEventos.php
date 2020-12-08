@@ -69,7 +69,7 @@
         <div class="titlePageContent">
             <H1>Meus Eventos</H1>
         </div>
-        <div class="quanti-evento" style="font-weight: 400; text-align: center; margin: 50px;">
+        <div class="quanti-evento" style="font-weight: 400; text-align: center; margin-bottom: 50px;">
             <h2>Você possui um total de <b><?php echo $quantEventos ? $quantEventos : 0; ?></b> eventos cadastrados.</h2>
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: large;">
