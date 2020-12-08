@@ -15,7 +15,10 @@
 
     <!-- Modelo de navbar no site do bootstrap -->
     <nav class="navbar navbar-expand-lg " id="navbar">
-        <a class="navbar-brand" href="#" id="logo">Nome do Negócio</a>
+        <a class="navbar-brand" href="#" id="logo">
+            <img src="./src/img/logo.png" alt="" title="safeMoney" style="width: 50px; height: 50px;">
+            safeMoney
+        </a>
         <div class="botoes">
             <form id="logPc" action="View/logInOut.php" method="POST">
                 <input type="hidden" name="tipo" value="Logar">
@@ -98,27 +101,27 @@
     
             </div>
             <div class="card">
-                <b class="card-title">Gerencie melhor sua renda!</b>
+                <b class="card-title">Controle seus gastos</b>
                 <ul class="topicos-list">
-                    <li topico>Ferramenta ideal para você</li>
+                    <li topico>Organize seu orçamento</li>
                     <hr>
-                    <li class="topico">Tenha melhor controle do seu dinheiro</li>
+                    <li class="topico">Registre o quanto recebe e quanto gasta</li>
                     <hr>
-                    <li class="topico">Controle contas a serem pagas</li>
+                    <li class="topico">Disciplina e autocontrole dos gastos</li>
                     <hr>
-                    <li class="topico">e muito mais!</li>
+                    <li class="topico">Equilibre sua vida financeira!</li>
                 
                 </ul>
     
             </div>
             <div class="card">
-                <b class="card-title">Gerencie melhor sua renda!</b>
+                <b class="card-title">Fique longe das dívidas!</b>
                 <ul class="topicos-list">
-                    <li topico>Ferramenta ideal para você</li>
+                    <li topico>Controle os pagamentos</li>
                     <hr>
-                    <li class="topico">Tenha melhor controle do seu dinheiro</li>
+                    <li class="topico">Saiba exatamente o que precisa gastar</li>
                     <hr>
-                    <li class="topico">Controle contas a serem pagas</li>
+                    <li class="topico">Não se esquecerá das datas de vencimentos</li>
                     <hr>
                     <li class="topico">e muito mais!</li>
                 

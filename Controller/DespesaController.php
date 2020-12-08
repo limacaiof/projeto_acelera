@@ -259,7 +259,7 @@ class DespesaController {
         }
     }
 
-    public function listarTodasPagas($email_user) {
+    public function listarTodasNaoPagas($email_user) {
 
         $pdo = Database::conexao();
         $lista[] = new Despesa;
