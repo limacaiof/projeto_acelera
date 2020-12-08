@@ -22,6 +22,14 @@
 
         $quantidadeDespesa = $controllerDespesa->listarQuantDespesasCadastradas($usuario->email);
         $quantidadeEvento = $controllerEvento->listarQuantEventoCadastrados($usuario->email);
+        $listaPagas = $controllerDespesa->listarTodasNaoPagas($usuario->email);
+
+        $somaValorDespesas = 0;
+
+        foreach ($listaPagas as $despesapaga) {
+            $somaValorDespesas+= doubleval($despesapaga->valor_despesa);
+        }
+
     ?>
     <link rel="stylesheet" href="../src/css/geral.css">
     <link rel="stylesheet" href="../src/css/visaoGeral.css">
@@ -144,7 +152,7 @@
                     <form action="../Controller/LoginController.php?acao=infovalor" method="POST">
                         <div class="agrupar" style="display: flex; flex-direction: column;">
                             <label style="font-size: large; font-style: normal" class="col-form-label" for="valor">Valor inicial:</label>
-                            <input class="input" id="valor" type="text" name="valor" style="width: 150px; height: 35px; margin-bottom: 25px;">
+                            <input class="input" id="valor" type="text" name="valor_i" style="width: 150px; height: 35px; margin-bottom: 25px;">
                         </div>
                         <button type="submit" class="btn btn-primary font3">Cadastrar</button>
                     </form>
@@ -173,14 +181,16 @@
             <?php endif ?>
 
         <?php else: ?>
-
+            <!-- Mostra quando usuario n tem despesa e nem eventos o que da entender que ele é um usuario novo -->
             <div class="alert alert-primary" role="alert" style="margin: 50px; text-align: center; font-size: large; font-style: normal;">
-                 Bem vindo ao safeMoney <b><?php echo $usuario->nome ?></b>! seu mais novo assistente de controle financeiro. Chega de fazer controles no papel, aqui você gerenciará melhor suas contas, despesas, eventos futuros de sua escolha, enfim, tudo em único lugar só! 
+                 Bem vindo ao <span style="color: green;">safe</span><span style="color: #f9b100;">Money</span> <b><?php echo $usuario->nome ?></b>! seu mais novo assistente de controle financeiro. Chega de fazer controles no papel, aqui você gerenciará melhor suas contas, despesas, eventos futuros de sua escolha, enfim, tudo em único lugar só através de seu computador ou smartphone! 
             </div>
 
             <?php ?>
 
         <?php endif; ?>
+
+        
 
 
     </div>
