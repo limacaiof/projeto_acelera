@@ -144,7 +144,7 @@
             </div>
             <div class="graphicContent cardsContent">
                 <h1>Orçamentos</h1>
-                <div id="grafico">
+                <div class="grafico">
                     <canvas id="myChart"></canvas>
                 </div>
             </div>

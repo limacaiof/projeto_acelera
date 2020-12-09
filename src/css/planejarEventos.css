@@ -5,25 +5,31 @@
     font-family: Squada One;
     color:#342929;
 }
+/* div dos items table and graphic */
 .tableGraphicContent{
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin: 0px auto;
+    flex-direction: column;
+    justify-content: center;
     height: auto;
 }
 .tableContent{
     margin-top: 40px;
 }
+.graphicContent{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    box-shadow: 1px 1px 4px 0px #342929;
+
+}
+.tabela{
+    width: 90%;
+    
+}
 .graphicContent h1{
     font-size: 18px;
     margin: 0px 0px;
     padding: 0px;
-}
-.cardsContent{
-    width: 45%;
-    height: 100%;
-    text-align: center;
 }
 .grafico canvas{
     width: 100%;
